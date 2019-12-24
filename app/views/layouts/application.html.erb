@@ -22,6 +22,13 @@
         <li><%= link_to "ログイン", new_user_session_path %></li>
       <% end %>
       </ul>
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     </header>
     <%= yield %>
     <footer class="footer">
