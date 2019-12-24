@@ -4,12 +4,29 @@
     <title>Graduation</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="header" class="container" >
+      <ul class="row">
+      <% if user_signed_in? %>
+        <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "記事一覧", events_path %></li>
+        <li><%= link_to "お気に入り一覧", favorite_users_path %></li>
+      <% else %>
+        <li><%= link_to "サインアップ", new_user_registration_path %></li>
+        <li><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+      </ul>
+    </header>
     <%= yield %>
+    <footer class="footer">
+    <p>運営会社INSTCLONE株式会社</p>
+    <p>© 2000 - 2019 Copyright INSTCLONE Corp.</p>
+    </footer>
   </body>
 </html>
