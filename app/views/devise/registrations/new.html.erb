@@ -15,11 +15,13 @@
 
   <div class="field">
     <%= f.label :icon %><br />
-    <%= f.text_field :icon %>
+    <%= image_tag(@user.icon.url, :size =>'100x100')if @user.icon && @user.icon.url %>
+    <%= f.file_field :icon %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <!-- <div class="field"> -->
-    <%# <%= f.label :admin %><br /> 
+    <%# <%= f.label :admin %><br />
     <%# <%= f.text_field :admin %>
   <!-- </div>  -->
 
