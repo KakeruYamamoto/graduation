@@ -17,7 +17,7 @@
     <%= f.label :icon %><br />
     <%= image_tag(@user.icon.url, :size =>'100x100')if @user.icon && @user.icon.url %>
     <%= f.file_field :icon %>
-    <%= form.hidden_field :image_cache %>
+    <%= f.hidden_field :icon_cache %>
   </div>
 
   <!-- <div class="field"> -->
