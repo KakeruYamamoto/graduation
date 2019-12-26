@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'users/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :users, only: [:show]
   devise_for :users, controllers: {
         registrations: 'users/registrations'
         }
+  resources :users, only: [:show]
   root to: 'events#index'
   resources :events do
     collection do
