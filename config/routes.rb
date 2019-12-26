@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  resources :users, only: [:show]
+  devise_for :users, controllers: {
+        registrations: 'users/registrations'
+        }
   root to: 'events#index'
   resources :events do
     collection do
