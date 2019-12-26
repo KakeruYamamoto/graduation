@@ -13,7 +13,7 @@
     <header class="header" class="container" >
       <ul class="row">
       <% if user_signed_in? %>
-        <%#<li><%= link_to "プロフィール", user_path(current_user.id) %>
+        <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "記事一覧", events_path %></li>
         <%# <!-- <li><%= link_to "お気に入り一覧", favorite_users_path %>
