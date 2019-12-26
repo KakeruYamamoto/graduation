@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
 
     respond_to do |format|
       if @event.save
@@ -55,7 +55,9 @@ class EventsController < ApplicationController
 
 
   def confirm
-    @event = Event.new(event_params)
+    # binding.pry
+    @event = current_user.events.build(event_params)
+    render :new if @event.invalid?
   end
 
   private
