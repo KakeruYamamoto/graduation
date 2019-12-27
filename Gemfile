@@ -42,6 +42,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'gimei'
   gem 'guard-rspec'
   gem 'rspec-rails'
   gem 'launchy'
