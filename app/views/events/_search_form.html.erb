@@ -5,10 +5,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :e_date,"日付で検索" %>
-    <%= f.date_field :e_date_gteq %>~
-    <%= f.date_field :e_date_lteq_end_of_day  %>
+    <%= f.label :e_date_start,"日付で検索" %>
+    <%= f.date_field :e_date_start_gteq %>~
+    <%= f.date_field :e_date_start_lteq_end_of_day  %>
   </div>
+
+  <!-- <div class="field">
+    <%# <%= f.label :address, "キーワードで検索"  %>
+    <%# <%= f.text_field :address_cont_any %>
+  </div> -->
 
   <div class="actions">
     <%= f.submit %>

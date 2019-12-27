@@ -3,11 +3,14 @@
   <%= image_tag(@event.image.url, :size =>'100x100') if @event.image && @event.image.url %>
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :title %>
+  <%= form.hidden_field :e_date_start %>
+  <%= form.hidden_field :e_date_end %>
+  <%= form.hidden_field :address %>
   <%= form.hidden_field :content %>
-  <%= form.hidden_field :e_date %>
   <p><%= @event.title %></p>
+  <p><%= @event.e_date_start %>~<%= @event.e_date_end %></p>
+  <p><%= @event.address %></p>
   <p><%= @event.content %></p>
-  <p><%= @event.e_date %></p>
   <%= form.submit "投稿する" %>
   <%= form.submit "戻る", name: "back" %>
 <% end %>

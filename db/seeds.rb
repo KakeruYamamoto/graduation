@@ -46,14 +46,14 @@
   num = 0
   10.times do |n|
     num =+ 1
-    title = Faker::Game.title
-    s1 = Date.parse("2019/01/01")
-    s2 = Date.parse("2021/01/01")
-    s = Random.rand(s1 .. s2)
+    # title = Faker::Game.title
+    # s1 = Date.parse("2019/01/01")
+    # s2 = Date.parse("2021/01/01")
+    # s = Random.rand(s1 .. s2)
 
     events1 = test_user1.events.build(title: title,
                         content: "test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}",
-                        e_date: s
+                        e_date_start: s
                         )
     events1.save
   end

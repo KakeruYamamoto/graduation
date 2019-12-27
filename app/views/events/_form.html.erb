@@ -17,6 +17,17 @@
   </div>
 
   <div class="field">
+    <%= form.label :e_date_start %>
+    <%= form.datetime_select :e_date_start %>~
+    <%= form.datetime_select :e_date_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
@@ -27,12 +38,6 @@
     <%= image_tag(@event.image.url, :size =>'100x100')if @event.image && @event.image.url %>
     <%= form.file_field :image%>
     <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.label :e_date %>
-    <%= form.datetime_select :e_date %>
-
   </div>
 
   <div class="actions">

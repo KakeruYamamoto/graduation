@@ -10,10 +10,11 @@
   <table>
     <thead>
       <tr>
+        <th>Image</th>
         <th>Title</th>
         <th>Content</th>
-        <th>Image</th>
         <th>E date</th>
+        <th>Address</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -21,10 +22,11 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
+          <td><%= image_tag event.image.url, :size =>'100x100' %></td>
           <td><%= event.title %></td>
           <td><%= event.content %></td>
-          <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-          <td><%= event.e_date %></td>
+          <td><%= event.e_date_start %>~<%= event.e_date_end %></td>
+          <td><%= event.address %></td>
           <td><%= link_to 'Show', event %></td>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>
           <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
