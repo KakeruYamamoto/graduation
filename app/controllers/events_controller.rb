@@ -3,6 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
+    @events = Event.order(created_at: :desc)#.page(params[:page]).per(5)
+
     if params[:q] != nil
       params[:q]['title_or_content_address_cont_any'] = params[:q]['title_or_content_address_cont_any'].split(/[\p{blank}\s]+/)
       @q = Event.ransack(params[:q])
