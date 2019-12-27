@@ -46,14 +46,18 @@
   num = 0
   10.times do |n|
     num =+ 1
-    # title = Faker::Game.title
+    title = Faker::Game.title
+    I18n.locale = 'ja'
+    time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short)
     # s1 = Date.parse("2019/01/01")
     # s2 = Date.parse("2021/01/01")
     # s = Random.rand(s1 .. s2)
+    address = Gimei.address
 
     events1 = test_user1.events.build(title: title,
                         content: "test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}",
-                        e_date_start: s
+                        e_date_start: time,
+                        address: address.kanji
                         )
     events1.save
   end
@@ -61,13 +65,17 @@
   10.times do |n|
     num =+ 1
     title = Faker::Game.title
-    s1 = Date.parse("2019/01/01")
-    s2 = Date.parse("2021/01/01")
-    s = Random.rand(s1 .. s2)
+    I18n.locale = 'ja'
+    time  = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short)
+    # s1 = Date.parse("2019/01/01")
+    # s2 = Date.parse("2021/01/01")
+    # s = Random.rand(s1 .. s2)
+    address = Gimei.address
 
     events2 = test_user2.events.build(title: title,
                         content: "test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}",
-                        e_date: s
+                        e_date_start: time,
+                        address: address.kanji
                         )
     events2.save
   end

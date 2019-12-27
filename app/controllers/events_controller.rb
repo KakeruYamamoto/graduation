@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     if params[:q] != nil
-      params[:q]['title_or_content_cont_any'] = params[:q]['title_or_content_cont_any'].split(/[\p{blank}\s]+/)
+      params[:q]['title_or_content_address_cont_any'] = params[:q]['title_or_content_address_cont_any'].split(/[\p{blank}\s]+/)
       @q = Event.ransack(params[:q])
       @events = @q.result
     else
