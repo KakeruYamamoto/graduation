@@ -3,6 +3,16 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <div class="circle-icon">
+    <% if current_user.persisted? && current_user.icon? %>
+      <%= image_tag current_user.icon.to_s %>
+      <label><%= f.check_box :remove_icon %> 画像を削除</label>
+    <% else %>
+      <%= image_tag(@user.icon.url, :size =>'100x100') %>
+      <%= f.hidden_field :icon_cache %>
+    <% end %>
+    <%= f.file_field :icon %>
+  </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
