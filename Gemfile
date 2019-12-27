@@ -19,6 +19,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
   gem 'jbuilder', '~> 2.5'
   gem 'webpacker'
   gem 'kaminari-bootstrap'
+  gem 'redcarpet'
+  gem 'rouge'
 
 # Backend
   gem 'carrierwave'

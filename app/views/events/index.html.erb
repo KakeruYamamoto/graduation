@@ -24,7 +24,7 @@
         <tr>
           <td><%= image_tag event.image.url, :size =>'100x100' %></td>
           <td><%= event.title %></td>
-          <td><%= event.content %></td>
+          <td><%= markdown(event.content) %></td>
           <td><%= event.e_date_start %>~<%= event.e_date_end %></td>
           <td><%= event.address %></td>
           <td><%= link_to 'Show', event %></td>
