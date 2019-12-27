@@ -80,7 +80,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :image, :image_cache, :o_id, :e_date)
+    params.require(:event).permit(:title, :content, :image, :image_cache, :o_id, :e_date_start, :e_date_end, :address)
   end
 
   def search_params
