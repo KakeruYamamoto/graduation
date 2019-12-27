@@ -6,14 +6,13 @@
   <h1>Events</h1>
 <% end %>
 
-
+  <p>イベント検索<%= render 'search_form' %></p>
   <table>
     <thead>
       <tr>
         <th>Title</th>
         <th>Content</th>
         <th>Image</th>
-        <th>O</th>
         <th>E date</th>
         <th colspan="3"></th>
       </tr>
@@ -25,7 +24,6 @@
           <td><%= event.title %></td>
           <td><%= event.content %></td>
           <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-          <td><%= event.o_id %></td>
           <td><%= event.e_date %></td>
           <td><%= link_to 'Show', event %></td>
           <td><%= link_to 'Edit', edit_event_path(event) %></td>

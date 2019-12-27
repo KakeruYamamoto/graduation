@@ -1,8 +1,21 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+
   def index
-    @events = Event.all
+    if params[:q] != nil
+      params[:q]['title_or_content_cont_any'] = params[:q]['title_or_content_cont_any'].split(/[\p{blank}\s]+/)
+      @q = Event.ransack(params[:q])
+      @events = @q.result
+    else
+      @q = Event.ransack(params[:q])
+      @events = @q.result(distinct: true)
+    end
+  end
+
+  def search
+     @q = Event.search(search_params)
+     @events = @q.result(distinct: true)
   end
 
   def show
@@ -68,5 +81,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :content, :image, :image_cache, :o_id, :e_date)
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end
