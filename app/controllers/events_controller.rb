@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(event_id: @event.id)
   end
 
   def new
