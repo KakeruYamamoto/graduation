@@ -6,5 +6,9 @@ class UsersController < ApplicationController
         redirect_to user_path(current_user.id), notice:  "アカウントが違います。アクセスするには再ログインしてください"
       end
       @users = current_user.events
-      end
   end
+  def favorite
+    @favorites = current_user.favorites.all
+  end
+
+end

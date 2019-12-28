@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         registrations: 'users/registrations'
         }
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    collection do
+      get :favorite
+    end
+  end
   root to: 'events#index'
   resources :events do
     collection do
