@@ -12,11 +12,11 @@
   </thead>
 
   <tbody>
-    <% @favorites.each do |feed| %>
+    <% @favorites.each do |event| %>
       <tr>
-        <td><%= image_tag feed.image.url, :size =>'100x100' %></td>
-        <td><%= feed.content %></td>
-        <td><%= link_to '記事を読む', feed %></td>
+        <td><%= image_tag event.image.url, :size =>'100x100' %></td>
+        <td><%= event.content %></td>
+        <td><%= link_to '記事を読む', event %></td>
       </tr>
     <% end %>
   </tbody>
