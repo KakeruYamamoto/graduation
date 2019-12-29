@@ -7,8 +7,5 @@ class UsersController < ApplicationController
       end
       @users = current_user.events
   end
-  def favorite
-    @favorites = current_user.favorites.all
-  end
 
 end

@@ -6,15 +6,14 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         registrations: 'users/registrations'
         }
-  resources :users, only: [:show] do
-    collection do
-      get :favorite
-    end
-  end
+  resources :users, only: [:show]
   root to: 'events#index'
   resources :events do
     collection do
       post :confirm
+    end
+    collection do
+      get :favorite
     end
   end
 
