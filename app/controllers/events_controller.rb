@@ -75,9 +75,9 @@ class EventsController < ApplicationController
     @event = current_user.events.build(event_params)
     render :new if @event.invalid?
   end
-  
+
   def favorite
-    @favorites = current_user.favorites.all
+    @favorites = current_user.favorite_events
   end
 
   private

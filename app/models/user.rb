@@ -4,6 +4,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :favorites, dependent: :destroy
   has_many :events
+  has_many :favorite_events, through: :favorites, source: :event
   validates :name, presence: true, length: { maximum: 30 }
   validates :email,presence: true, length: { maximum: 255 }, uniqueness: true,
                 format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
