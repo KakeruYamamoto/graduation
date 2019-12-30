@@ -8,4 +8,7 @@ class UsersController < ApplicationController
       @users = current_user.events
   end
 
+  def parthicipant
+    @parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
+  end
 end

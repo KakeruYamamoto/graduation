@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :favorites, dependent: :destroy
+  has_many :parthicipant_managements, dependent: :destroy
   has_many :events
   has_many :favorite_events, through: :favorites, source: :event
   validates :name, presence: true, length: { maximum: 30 }

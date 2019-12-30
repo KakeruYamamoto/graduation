@@ -31,5 +31,13 @@
   <%= @event.e_date_start %>~<%= @event.e_date_end %>
 </p>
 
+<% unless @event.user_id == current_user.id %>
+  <% if @favorite.present? %>
+    <%= link_to '参加をキャンセルする', parthicipant_path(id: @parthicipant.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
