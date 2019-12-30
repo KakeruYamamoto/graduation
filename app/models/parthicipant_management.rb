@@ -1,0 +1,2 @@
+class ParthicipantManagement < ApplicationRecord
+end
