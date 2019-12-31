@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
+  resources :parthicipant, only: [:create, :destroy]
   get 'users/show'
   get 'search', to: 'events#search'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
