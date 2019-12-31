@@ -21,7 +21,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    @favorite = current_user.favorites.find_by(event_id: @event.id)
+    if user_signed_in?
+      @favorite = current_user.favorites.find_by(event_id: @event.id)
+      # @parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
+    end
   end
 
   def new
