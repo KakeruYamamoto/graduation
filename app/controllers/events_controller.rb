@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def show
     if user_signed_in?
       @favorite = current_user.favorites.find_by(event_id: @event.id)
-      # @parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
+      @parthicipante = current_user.parthicipant_managements.where(event_id: @event.id)
     end
   end
 
