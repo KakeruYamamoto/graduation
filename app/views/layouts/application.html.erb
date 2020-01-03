@@ -11,17 +11,20 @@
 
   <body>
     <header class="header" class="container" >
-      <ul class="row">
-      <% if user_signed_in? %>
-        <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "記事一覧", events_path %></li>
-        <li><%= link_to "お気に入り一覧", favorite_events_path %></li>
-      <% else %>
-        <li><%= link_to "サインアップ", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      <% end %>
-      </ul>
+      <h3>EventKeeper</h3>
+      <nav>
+        <ul class="top_menu" class="row">
+        <% if user_signed_in? %>
+          <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "記事一覧", events_path %></li>
+          <li><%= link_to "お気に入り一覧", favorite_events_path %></li>
+        <% else %>
+          <li><%= link_to "サインアップ", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+        </ul>
+      </nav>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>

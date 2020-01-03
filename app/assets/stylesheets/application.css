@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+
+.header {
+  background-color: #233A61;
+  height: 50px;
+  font-size: 1.5rem;
+  color: white;
+}
+
+li {
+  list-style: none;
+
+}
