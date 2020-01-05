@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    # binding.pry
     if user_signed_in?
       @favorite = current_user.favorites.find_by(event_id: @event.id)
       @parthicipante = current_user.parthicipant_managements.where(event_id: @event.id)
@@ -39,6 +40,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @event = current_user.events.build(event_params)
 
     respond_to do |format|
@@ -74,8 +76,8 @@ class EventsController < ApplicationController
 
 
   def confirm
-    # binding.pry
     @event = current_user.events.build(event_params)
+    @label_ids = event_params[:label_ids]
     render :new if @event.invalid?
   end
 
@@ -90,7 +92,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :content, :image, :image_cache, :o_id, :e_date_start, :e_date_end, :address)
+    params.require(:event).permit(:title, :content, :image, :image_cache, :o_id, :e_date_start, :e_date_end, :address, label_ids: [])
   end
 
   def search_params

@@ -79,9 +79,9 @@
                         )
     events2.save
   end
-# num = 0
-# 5.times do |n|
-#
-#   Label.create!(name: "ラベル#{num += 1}")
-#
-# end
+num = 0
+5.times do |n|
+
+  Label.create!(name: "ラベル#{num += 1}")
+
+end

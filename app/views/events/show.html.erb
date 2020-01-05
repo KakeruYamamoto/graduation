@@ -33,6 +33,13 @@
   <%= @event.e_date_start %>~<%= @event.e_date_end %>
 </p>
 
+<p>
+  <strong>ラベル:</strong>
+  <span class="labels"><% @event.labels.each do |label| %>
+  <%= label.name %>
+  <% end %></span>
+</p>
+
 <% if @parthicipante.present? %>
   <h4>参加者</h4>
   <% @parthicipante.each do |parthicipante| %>
