@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :contacts
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :favorites, only: [:create, :destroy]
   resources :parthicipant_managements, only: [:create, :destroy]
   get 'users/show'
@@ -18,7 +20,4 @@ Rails.application.routes.draw do
     end
   end
 
-  if Rails.env.development?
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 end

@@ -43,11 +43,12 @@
 <% if user_signed_in? %>
   <% unless @event.user_id == current_user.id %>
     <% if @parthicipant.present? %>
-      <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipant.id), method: :delete, class: 'btn btn-danger' %>
+      <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipant.id), method: :delete, class: 'btn btn-danger' %><br>
     <% else %>
-      <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
+      <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
     <% end %>
   <% end %>
+  <%= link_to 'お問い合わせ', new_contact_path %><br>
 <% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
