@@ -21,14 +21,23 @@
   height: 50px;
   font-size: 1.5rem;
   color: white;
+  display: flex;
+
 }
 
 
 .footer {
-    background-color: #233A61;
-      color: white;
+  background-color: #233A61;
+  color: white;
 }
-li {
-  list-style: none;
 
+nav ul {
+  display: flex;
+}
+
+
+
+.header li {
+  list-style: none;
+  justify-content: flex-end;
 }
