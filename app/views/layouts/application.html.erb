@@ -16,11 +16,12 @@
         <ul class="top_menu" class="row">
         <% if user_signed_in? %>
           <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to "記事一覧", events_path %></li>
-          <li><%= link_to "お気に入り一覧", favorite_events_path %></li>
+          <li><%= link_to "あとでみるリスト", favorite_events_path %></li>
+          <li><%= link_to "新規イベント作成", new_event_path %></li>
+
         <% else %>
-          <li><%= link_to "サインアップ", new_user_registration_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
           <li><%= link_to "ログイン", new_user_session_path %></li>
         <% end %>
         </ul>
@@ -33,6 +34,11 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     </header>
+    <section class="main-header">
+      <div class="header_image">
+        <!-- <p class="image"><img src="../../assets/workshop-1746275_1920.jpg"></p> -->
+      </div>
+    </section>
     <%= yield %>
     <footer class="footer">
     <p>運営会社INSTCLONE株式会社</p>

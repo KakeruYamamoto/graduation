@@ -16,28 +16,29 @@
  */
 
 
-.header {
-  background-color: #233A61;
-  height: 50px;
-  font-size: 1.5rem;
-  color: white;
-  display: flex;
 
+
+body {
+	font-family: sans-serif;
 }
-
-
-.footer {
-  background-color: #233A61;
-  color: white;
+nav {
+	background-color: #222222;
+	color: white;
 }
-
 nav ul {
-  display: flex;
+	display: flex;
+	flex-flow: row;
+	margin: 0;
+	padding: 6px;
+	list-style-type: none;
 }
-
-
-
-.header li {
-  list-style: none;
-  justify-content: flex-end;
+nav a {
+	display: block;
+	border-radius: 4px;
+	padding: 12px 24px;
+	color: white;
+	text-decoration: none;
+}
+nav li a:hover {
+	background-color: #8cae47;
 }
