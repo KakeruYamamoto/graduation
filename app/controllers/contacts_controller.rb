@@ -1,8 +1,8 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show, :destroy]
 
   def index
-    @contacts = Contact.all
+    @contacts = current_user.event.contacts.all
   end
 
   def show
@@ -12,16 +12,17 @@ class ContactsController < ApplicationController
     @contact = Contact.new
   end
 
-  def edit
-  end
-
   def create
     @contact = Contact.new(contact_params)
+
+    # @contact =
+    # if params[:event_owner_email]
+    #   @event_owner_email ||= params[:event_owner_email]
+    # end
 
     respond_to do |format|
       if @contact.save   #なぜにContactMailer.contact_mailが呼び出せるか？継承もされていないのに
         ContactMailer.contact_mail(@contact).deliver#これを追記することで、お問い合わせ内容が保存された時にContactMailerのcontact_mailメソッドを呼ぶ
-        redirect_to contacts_path, notice: 'Contact was successfully created.'
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
         format.json { render :show, status: :created, location: @contact }
       else
@@ -31,17 +32,7 @@ class ContactsController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: 'Contact was successfully updated.' }
-        format.json { render :show, status: :ok, location: @contact }
-      else
-        format.html { render :edit }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
 
   def destroy
     @contact.destroy
@@ -57,8 +48,8 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def contact_params
-    params.require(:contact).permit(:name, :email, :content)
+    params.require(:contact).permit(:title, :email, :content, :event_id, :name)
   end
+
 end

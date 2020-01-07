@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :contacts
+  resources :contacts, only: [:new, :create, :show, :destroy]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :favorites, only: [:create, :destroy]
   resources :parthicipant_managements, only: [:create, :destroy]

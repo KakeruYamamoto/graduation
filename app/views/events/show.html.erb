@@ -24,11 +24,6 @@
 </p>
 
 <p>
-  <strong>O:</strong>
-  <%= @event.o_id %>
-</p>
-
-<p>
   <strong>E date:</strong>
   <%= @event.e_date_start %>~<%= @event.e_date_end %>
 </p>
@@ -55,7 +50,7 @@
       <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
     <% end %>
   <% end %>
-  <%= link_to 'お問い合わせ', new_contact_path %><br>
+  <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id) %><br>
 <% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
