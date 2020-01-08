@@ -35,7 +35,7 @@
   <% end %></span>
 </p>
 
-<% if @current_user_parthicipant.present? %>
+<% if @parthicipante_users.present? %>
   <h4>参加者</h4>
   <% @parthicipante_users.each do |parthicipante| %>
   <p><%= parthicipante.name %>さん</p>
