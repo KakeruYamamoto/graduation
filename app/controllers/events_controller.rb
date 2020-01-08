@@ -24,7 +24,9 @@ class EventsController < ApplicationController
     # binding.pry
     if user_signed_in?
       @favorite = current_user.favorites.find_by(event_id: @event.id)
-      @parthicipante = current_user.parthicipant_managements.where(event_id: @event.id)
+      @current_user_parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
+      @parthicipante = @event.parthicipant_managements.where(event_id: @event.id)
+      @parthicipante_users = @event.parthicipante_users#.where(event_id: @event.id)
     end
   end
 
@@ -57,6 +59,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
+        EventChangeMailer.event_change(@event.parthicipante_users.email)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
@@ -98,4 +101,9 @@ class EventsController < ApplicationController
   def search_params
     params.require(:q).permit!
   end
+
+  def contact_params
+    params.require(:contact).permit(:title, :email, :content, :event_id, :name)
+  end
+
 end

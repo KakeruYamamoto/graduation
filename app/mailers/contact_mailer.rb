@@ -4,4 +4,5 @@ class ContactMailer < ApplicationMailer
       @event_owner_email = @contact.event.user.email
       mail to: @event_owner_email, subject: "お問い合わせの確認メール"
   end
+
 end

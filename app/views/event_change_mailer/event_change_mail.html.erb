@@ -1,0 +1,12 @@
+<h1>イベントの内容が変更されました</h1>
+
+<h4>title: <%= @contact.title %></h4>
+
+<h3>イベント主催者情報</h3>
+<p>名前： <%= @contact.event.user.name %></p>
+<p>お問い合わせ先： <%= @contact.event.user.email %></p>
+
+
+<h4>主催者からのメッセージ</h4>
+
+<p>content: <%= @contact.content %></p>

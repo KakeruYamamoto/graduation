@@ -15,11 +15,6 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
-    # @contact =
-    # if params[:event_owner_email]
-    #   @event_owner_email ||= params[:event_owner_email]
-    # end
-
     respond_to do |format|
       if @contact.save   #なぜにContactMailer.contact_mailが呼び出せるか？継承もされていないのに
         ContactMailer.contact_mail(@contact).deliver#これを追記することで、お問い合わせ内容が保存された時にContactMailerのcontact_mailメソッドを呼ぶ
