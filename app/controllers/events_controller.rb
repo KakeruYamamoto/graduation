@@ -21,7 +21,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    # binding.pry
     if user_signed_in?
       @favorite = current_user.favorites.find_by(event_id: @event.id)
       @current_user_parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
@@ -42,9 +41,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @event = current_user.events.build(event_params)
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -61,12 +58,10 @@ class EventsController < ApplicationController
       if @event.update(event_params)
         if @event.parthicipante_users.present?
           @event.parthicipante_users.each do|event_parthicipante_user|
-            # binding.pry
             @event_info = @event
             EventChangeMailer.event_change(event_parthicipante_user.email,@event_info).deliver
           end
         end
-        # binding.pry
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
