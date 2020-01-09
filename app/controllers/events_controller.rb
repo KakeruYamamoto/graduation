@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action:destroy_message, only: [:destroy]
 
   def index
     @events = Event.order(e_date_start: :desc).page(params[:page]).per(20)
@@ -53,12 +54,18 @@ class EventsController < ApplicationController
     end
   end
 
+  def confirm
+    @event = current_user.events.build(event_params)
+    @label_ids = event_params[:label_ids]
+    render :new if @event.invalid?
+  end
+
   def update
     respond_to do |format|
       if @event.update(event_params)
         if @event.parthicipante_users.present?
+          @event_info = @event
           @event.parthicipante_users.each do|event_parthicipante_user|
-            @event_info = @event
             EventChangeMailer.event_change(event_parthicipante_user.email,@event_info).deliver
           end
         end
@@ -71,23 +78,17 @@ class EventsController < ApplicationController
     end
   end
 
+  def favorite
+    @favorites = current_user.favorite_events
+  end
+
   def destroy
     @event.destroy
+    # binding.pry
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-
-  def confirm
-    @event = current_user.events.build(event_params)
-    @label_ids = event_params[:label_ids]
-    render :new if @event.invalid?
-  end
-
-  def favorite
-    @favorites = current_user.favorite_events
   end
 
   private
@@ -102,6 +103,12 @@ class EventsController < ApplicationController
 
   def search_params
     params.require(:q).permit!
+  end
+
+  def destroy_message
+    @event.parthicipante_users.each do|event|
+      EventDestroyMailer.event_destroy(event.email,@event).deliver
+    end
   end
 
   def contact_params
