@@ -18,6 +18,7 @@
           <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
           <li><%= link_to "記事一覧", events_path %></li>
           <li><%= link_to "あとでみるリスト", favorite_events_path %></li>
+          <li><%= link_to "参加イベント",parthicipante_events_events_path %>
           <li><%= link_to "新規イベント作成", new_event_path %></li>
 
         <% else %>

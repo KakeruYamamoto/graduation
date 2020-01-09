@@ -4,6 +4,12 @@
     <%= f.text_field :title_or_content_or_address_cont_any %>
   </div>
 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= search_form_for(@q, url:search_path) do |f| %>
   <div class="field">
     <%= f.label :e_date_start,"日付で検索" %>
     <%= f.datetime_select :e_date_start_gteq %>~

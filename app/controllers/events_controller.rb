@@ -82,6 +82,10 @@ class EventsController < ApplicationController
     @favorites = current_user.favorite_events
   end
 
+  def parthicipante_events
+    @parthicipante_events = current_user.parthicipante_events
+  end
+
   def destroy
     @event.destroy
     # binding.pry

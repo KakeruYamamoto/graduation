@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     collection do
       get :favorite
     end
+    collection do
+      get :parthicipante_events
+    end
   end
 
 end
