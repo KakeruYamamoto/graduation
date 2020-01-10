@@ -15,12 +15,16 @@
  *= require_self
  */
 
+ html {
+   font-size: 62.5%;
+ }
 
+ body {
+   width: 980px;
+   margin: 0 auto;
+	 font-family: sans-serif;
+ }
 
-
-body {
-	font-family: sans-serif;
-}
 nav {
 	background-color: #222222;
 	color: white;
@@ -42,3 +46,27 @@ nav a {
 nav li a:hover {
 	background-color: #8cae47;
 }
+
+.main-header {
+  padding-bottom: 50%;
+	padding-top: 50%;
+  width: 100%;
+  background-size: cover;
+  background-image: url("../../assets/workshop-1746275_1920.jpg");
+  /* background-attachment: fixed; */
+}
+
+/* .main-header .header_image {
+  position: absolute;
+   top: 50%;
+   left: 47%;
+   -webkit-transform : translate(-50%,-50%);
+   transform : translate(-50%,-50%);
+   width: 100px;
+} */
+
+/* main画像（白い「Achieve」の文字の画像）部分の実装 */
+
+/* .main-header img {
+  width: 200px;
+} */
