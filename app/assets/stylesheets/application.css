@@ -15,7 +15,12 @@
  *= require_self
  */
 
- html {
+
+
+
+
+
+ /* html {
    font-size: 62.5%;
  }
 
@@ -60,8 +65,8 @@ nav li a:hover {
   position: absolute;
    top: 50%;
    left: 47%;
-   -webkit-transform : translate(-50%,-50%);
-   transform : translate(-50%,-50%);
+   /* -webkit-transform : translate(-50%,-50%); */
+   /* transform : translate(-50%,-50%);
    width: 100px;
 } */
 
@@ -69,4 +74,4 @@ nav li a:hover {
 
 /* .main-header img {
   width: 200px;
-} */
+}
