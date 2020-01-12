@@ -4,15 +4,15 @@ class EventsController < ApplicationController
   before_action:destroy_message, only: [:destroy]
 
   def index
-    @events = Event.order(e_date_start: :desc).page(params[:page]).per(20)
+    @events = Event.order(e_date_start: :desc).page(params[:page]).per(12)
 
     if params[:q] != nil
       params[:q]['title_or_content_address_cont_any'] = params[:q]['title_or_content_address_cont_any'].split(/[\p{blank}\s]+/)
       @q = Event.ransack(params[:q])
-      @events = @q.result.order(e_date_start: :desc).page(params[:page]).per(20)
+      @events = @q.result.order(e_date_start: :desc).page(params[:page]).per(12)
     else
       @q = Event.ransack(params[:q])
-      @events = @q.result(distinct: true).order(e_date_start: :desc).page(params[:page]).per(20)
+      @events = @q.result(distinct: true).order(e_date_start: :desc).page(params[:page]).per(12)
     end
   end
 

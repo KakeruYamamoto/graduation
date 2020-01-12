@@ -15,47 +15,60 @@
   </head>
 
   <body>
-    
-    <header class="header" class="container" >
-      <a class="navbar-brand" href="#">EventKeeper</a>
-      <h3>EventKeeper</h3>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
-              <span class="sr-only">Bootstrap</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-              <ul class="top_menu" class="row">
-              <% if user_signed_in? %>
-                <li><%= link_to "プロフィール", user_path(current_user.id) %></li>
-                <li><%= link_to "記事一覧", events_path %></li>
-                <li><%= link_to "あとでみるリスト", favorite_events_path %></li>
-                <li><%= link_to "参加イベント",parthicipante_events_events_path %>
-                <li><%= link_to "新規イベント作成", new_event_path %></li>
-
-              <% else %>
-                <li><%= link_to "新規登録", new_user_registration_path %></li>
-                <li><%= link_to "ログイン", new_user_session_path %></li>
-              <% end %>
-              </ul>
-          </div>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <% if current_user.try(:admin?) %>
+          <a class="navbar-brand" href="#">EventKeeper_admin</a>
+        <% else %>
+          <a class="navbar-brand" href="#">EventKeeper</a>
+        <% end %>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarForm" aria-controls="navbarForm" aria-expanded="false" aria-label="ナビゲーションの切替">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarForm">
+          <ul class="navbar-nav">
+            <% if user_signed_in? %>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">ホーム <span class="sr-only">(現位置)</span></a>
+            </li>
+            <li class="nav-item">
+              <%= link_to "プロフィール", user_path(current_user.id), class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "記事一覧", events_path, class:"nav-link" %>
+            </li>
+            <li>
+              <%= link_to "あとでみるリスト", favorite_events_path, class:"nav-link" %>
+            </li>
+            <li>
+              <%= link_to "参加イベント",parthicipante_events_events_path, class:"nav-link" %>
+            </li>
+            <li>
+              <%= link_to "新規イベント作成", new_event_path, class:"nav-link" %>
+            </li>
+            <% else %>
+            <li>
+              <%= link_to "新規登録", new_user_registration_path, class:"nav-link" %>
+            </li>
+            <li>
+              <%= link_to "ログイン", new_user_session_path, class:"nav-link" %>
+            </li>
+            <% end %>
+          </ul>
+          <!-- <form class="form-inline my-2 my-lg-0 ml-auto"> -->
+            <%= render 'search_form' %>
+            <!-- <input class="form-control mr-sm-2" type="text" placeholder="検索..." aria-label="検索..."> -->
+            <!-- <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button> -->
+          <!-- </form> -->
+          <%# <%= render 'search_form' %>
         </div>
       </nav>
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
 
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    </header>
-    <%= yield %>
-    <footer class="footer">
-    <p>運営会社INSTCLONE株式会社</p>
-    <p>© 2000 - 2019 Copyright INSTCLONE Corp.</p>
-    </footer>
+      <%= yield %>
+      <footer class="footer">
+      <p>運営会社INSTCLONE株式会社</p>
+      <p>© 2000 - 2019 Copyright INSTCLONE Corp.</p>
+      </footer>
+    </div>
   </body>
 </html>
