@@ -5,15 +5,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order(e_date_start: :desc).page(params[:page]).per(12)
-
-    if params[:q] != nil
-      params[:q]['title_or_content_address_cont_any'] = params[:q]['title_or_content_address_cont_any'].split(/[\p{blank}\s]+/)
-      @q = Event.ransack(params[:q])
-      @events = @q.result.order(e_date_start: :desc).page(params[:page]).per(12)
-    else
-      @q = Event.ransack(params[:q])
-      @events = @q.result(distinct: true).order(e_date_start: :desc).page(params[:page]).per(12)
-    end
   end
 
   def search
@@ -115,8 +106,8 @@ class EventsController < ApplicationController
     end
   end
 
-  def contact_params
-    params.require(:contact).permit(:title, :email, :content, :event_id, :name)
-  end
+  # def contact_params
+  #   params.require(:contact).permit(:title, :email, :content, :event_id, :name)
+  # end
 
 end

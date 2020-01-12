@@ -1,22 +1,6 @@
 <%= search_form_for(@q, url:search_path, html: {class: 'form-inline my-2 my-lg-0 ml-auto'}) do |f| %>
-  <!-- <div class="field", class="form-inline my-2 my-lg-0 ml-auto"> -->
-    <%# <%= f.label :title_or_content_or_address, "キーワードで検索" %>
+
     <%= f.text_field :title_or_content_or_address_cont_any, class: "form-control mr-sm-2", placeholder: "キーワード検索" %>
-  <!-- </div> -->
-
-  <!-- <div class="actions"> -->
     <%= f.submit(class: "btn btn-outline-success my-2 my-sm-0") %>
-  <!-- </div> -->
+
 <% end %>
-
-<%# <%= search_form_for(@q, url:search_path) do |f| %>
-  <!-- <div class="field"> -->
-    <%# <%= f.label :e_date_start,"日付で検索" %>
-    <%# <%= f.datetime_select :e_date_start_gteq %>
-    <%# <%= f.datetime_select :e_date_start_lteq_end_of_day  %>
-  <!-- </div> -->
-
-  <!-- <div class="actions"> -->
-    <%# <%= f.submit %>
-  <!-- </div> -->
-<%# <% end %>

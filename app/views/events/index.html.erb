@@ -20,6 +20,7 @@
     <!-- カード -->
     <div class="row center-block">
       <% @events.each do |event| %>
+      <%# <%= link_to event_path(event.id) do %>
       <div class="card-deck col-sm-6 col-md-3 mt-5" >
        <div class="card img-thumbnail">
           <!-- <img class="card-img-top" src="https://www.homepage-tukurikata.com/image/lion.jpg" alt="画像"> -->
@@ -27,12 +28,16 @@
           <div class="card-body px-2 py-3">
             <h5 class="card-title"><%= event.title %></h5>
             <p class="card-text"><%= markdown(event.content) %></p>
-            <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a> <a href="#" class="btn btn-secondary btn-sm">ボタン</a></p>
+            <!-- <p class="mb-0"><a href="#" class="btn btn-primary btn-sm">ボタン</a> <a href="#" class="btn btn-secondary btn-sm">ボタン</a></p> -->
+            <%= link_to 'Show', event %>
           </div><!-- /.card-body -->
         </div><!-- /.card -->
       </div><!-- /.col-sm-6.col-md-3 -->
+      <%# <% end %>
       <% end %>
 
+
+<%# <%= image_tag("earring/01.jpg", :class => "card-img-top", :alt => "Card image cap") %> %>
     </div>
   </div>
 <!-- </article> -->
