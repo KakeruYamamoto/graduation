@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     if params[:q] != nil
-      params[:q]['title_or_content_address_cont_any'] = params[:q]['title_or_content_address_cont_any'].split(/[\p{blank}\s]+/)
+      params[:q]['title_or_content_or_address_cont_any'] = params[:q]['title_or_content_or_address_cont_any'].split(/[\p{blank}\s]+/)
       @q = Event.ransack(params[:q])
       @events = @q.result.order(e_date_start: :desc).page(params[:page]).per(12)
     else

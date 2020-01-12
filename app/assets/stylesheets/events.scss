@@ -20,11 +20,16 @@ a {
   }
 
   &:hover {
-    color: #fff;
     background-color: #fff;
   }
 }
 
+.event_link {
+  &:hover {
+    opacity: 0.7;
+    background-color: #fff;
+  }
+}
 
 #notice {
   color: green;
