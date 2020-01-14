@@ -1,5 +1,6 @@
 FactoryBot.define do
-  factory :labeling do
-    
+  factory :labelling do
+    event { 3 }
+    label { 3 }
   end
 end

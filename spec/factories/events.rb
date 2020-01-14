@@ -1,12 +1,22 @@
 FactoryBot.define do
-  factory :event do
-    title { "MyString" }
-    content { "MyText" }
-    image { "MyString" }
-    # o_id { 1 }
-    # e_date { "2019-12-25 00:03:25" }
-    e_date_start
-    e_date_end
-    address
+
+  factory :event , class: Event do
+    title { 'test_event_01' }
+    content { 'Factoryで作ったデフォルトのコンテント１' }
   end
+
+  factory :second_event, class: Event do
+    title { 'test_event_02' }
+    content { 'Factoryで作ったデフォルトのコンテント２' }
+  end
+
+  factory :third_event, class: Event do
+    title { 'test_event_03' }
+    task_content { 'Factoryで作ったデフォルトのコンテント３' }
+    e_date_start { "2019-12-25 00:03:25" }
+    deadline {'2019/11/24'}
+    address {'東京都港区'}
+  end
+
+
 end
