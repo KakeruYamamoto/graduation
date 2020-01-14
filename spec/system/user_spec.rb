@@ -7,9 +7,9 @@ RSpec.describe "ユーザ管理機能", type: :system do
     @user2 = FactoryBot.create(:second_user)
     @user3 = FactoryBot.create(:third_user)
 
-    @task1 = FactoryBot.create(:task, user_id: @user1.id)
-    @task2 = FactoryBot.create(:second_task, user_id: @user1.id)
-    @task3 = FactoryBot.create(:third_task, user_id: @user1.id)
+    @event1 = FactoryBot.create(:event, user_id: @user1.id)
+    @event2 = FactoryBot.create(:second_event, user_id: @user1.id)
+    @event3 = FactoryBot.create(:third_event, user_id: @user1.id)
   end
 
   before(:each) do
@@ -36,12 +36,12 @@ RSpec.describe "ユーザ管理機能", type: :system do
   end
 
   scenario 'ユーザ詳細のテスト' do
-    visit admin_user_path(@task1.id)
-    expect(page).to have_content 'test_task_01'
+    visit admin_user_path(@event1.id)
+    expect(page).to have_content 'test_event_01'
   end
 
   scenario "ユーザ更新テスト" do
-    visit edit_user_path(@task1.id)
+    visit edit_user_path(@event1.id)
     fill_in "user[user_name]", with: 'test_user333'
     fill_in "user[email]", with: 'test_user1@gmail.com'
     fill_in "user[password]", with: 'test_user1@gmail.comtest_user1@gmail.com'

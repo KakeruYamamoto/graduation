@@ -12,9 +12,8 @@ FactoryBot.define do
 
   factory :third_event, class: Event do
     title { 'test_event_03' }
-    task_content { 'Factoryで作ったデフォルトのコンテント３' }
+    content { 'Factoryで作ったデフォルトのコンテント３' }
     e_date_start { "2019-12-25 00:03:25" }
-    deadline {'2019/11/24'}
     address {'東京都港区'}
   end
 

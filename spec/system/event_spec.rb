@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "タスク管理機能", type: :system do
+RSpec.describe "イベント管理機能", type: :system do
   before do
 
     @user1 = FactoryBot.create(:first_user)
@@ -14,70 +14,67 @@ RSpec.describe "タスク管理機能", type: :system do
   end
 
   before(:each) do
-    visit new_session_path
-    fill_in 'session[email]', with: @user1.email
-    fill_in 'session[password]', with: @user1.password
+    visit new_user_session_path
+    fill_in 'user[email]', with: @user1.email
+    fill_in 'user[password]', with: @user1.password
     click_on "Log in"
   end
 
-  scenario 'タスク一覧のテスト' do
+  scenario 'イベント一覧のテスト' do
     visit events_path
     expect(page).to have_content 'test_event_01'
   end
 
-  scenario 'タスク作成のテスト' do
+  scenario 'イベント作成のテスト' do
     visit new_event_path
-    fill_in "タスク名", with: 'event'
-    fill_in "タスク詳細", with: 'event'
+    fill_in "event[title]", with: 'eventsample'
+    fill_in "event[address]", with: '東京'
+    select "2020", from: "event[e_date_start(1i)]"
+    select "1月", from: "event[e_date_start(2i)]"
+    select "1", from: "event[e_date_start(3i)]"
+    select "12", from: "event[e_date_start(4i)]"
+    select '00', from: 'event[e_date_start(5i)]'
+    fill_in "event[content]", with: 'eventtesteventtesteventtest'
     click_on '登録する'
-    expect(page).to have_content 'event'
+    expect(page).to have_content 'eventtesteventtesteventtest'
+    expect(page).to have_content 'eventsample'
   end
 
-  scenario 'タスク詳細のテスト' do
+  scenario 'イベント詳細のテスト' do
     visit events_path(@event1.id)
     expect(page).to have_content 'test_event_01'
   end
 
-  scenario "タスクが作成日時の降順に並んでいるかのテスト" do
-    visit events_path
-    first(:link, "詳細").click
-    expect(page).to have_text "test_event_03"
+  scenario "イベント更新テスト" do
+    visit event_path(@event2)
+    click_on 'Edit'
+    fill_in "event[title]", with: 'eventsample22'
+    fill_in "event[address]", with: '東京'
+    select "2020", from: "event[e_date_start(1i)]"
+    select "1月", from: "event[e_date_start(2i)]"
+    select "1", from: "event[e_date_start(3i)]"
+    select "12", from: "event[e_date_start(4i)]"
+    select '00', from: 'event[e_date_start(5i)]'
+    fill_in "event[content]", with: 'eventtesteventtesteventtest22'
+    click_on '更新する'
+    expect(page).to have_content 'eventtesteventtesteventtest22'
+    expect(page).to have_content 'eventsample22'
   end
 
-  scenario "終了期限のテスト" do
-    visit events_path
-    first(:link, "詳細").click
-    expect(page).to have_text "2019/11/24"
+  scenario "イベント削除" do
+    visit edit_event_path(@event3)
+    click_on "Destroy"
+    page.driver.browser.switch_to.alert.accept
+    expect(page).to have_text "Event was successfully destroyed."
+    expect(page).not_to have_text "test_event_03"
   end
 
-  scenario "ステータスのテスト" do
-    visit events_path
-    first(:link, "詳細").click
-    expect(page).to have_text "完了"
-  end
 
-  scenario "検索ロジックのmodelのテスト" do
+  scenario "イベント検索のテスト" do
     visit events_path
-    fill_in "search_event_names", with: 'test_event_03'
-    select "完了", from: "event[status]"
+    fill_in "q[title_or_content_or_address_cont_any]", with: 'Factoryで作ったデフォルトのコンテント１'
+
     click_on '検索'
-    expect(page).to have_content 'test_event_03',"完了"
-  end
-
-  scenario "ラベルのテスト" do
-
-    visit events_path
-
-    first(:link, "編集").click
-    check 'ラベル１'
-    click_on '登録する'
-    expect(page).to have_text "ラベル１"
-  end
-
-  scenario "ラベル検索のテスト" do
-    visit events_path
-    select "ラベル１", from: "label_id"
-    click_on 'Search'
-    expect(page).to have_content "ラベル１"
+    expect(page).to have_content "Factoryで作ったデフォルトのコンテント１"
   end
 end
