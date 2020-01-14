@@ -13,47 +13,42 @@ RSpec.describe "ユーザ管理機能", type: :system do
   end
 
   before(:each) do
-    visit new_session_path
-    fill_in 'session[email]', with: @user1.email
-    fill_in 'session[password]', with: @user1.password
+    visit new_user_session_path
+    fill_in 'user[email]', with: @user1.email
+    fill_in 'user[password]', with: @user1.password
     click_on "Log in"
   end
 
 
   scenario 'ユーザ一覧のテスト' do
-    visit admin_users_path
+    visit rails_admin_path
+    first(:link, "ユーザー").click
     expect(page).to have_content 'test_user1'
+    expect(page).to have_content 'test_user2'
+    expect(page).to have_content 'test_user3'
   end
 
   scenario 'ユーザ作成のテスト' do
-    visit new_admin_user_path
-    fill_in "user[user_name]", with: 'test_user1'
-    fill_in "user[email]", with: 'test_user1@gmail.com'
-    fill_in "user[password]", with: 'test_user1@gmail.comtest_user1@gmail.com'
-    fill_in "user[password_confirmation]", with: 'test_user1@gmail.comtest_user1@gmail.com  '
-    click_on 'commit'
-    expect(page).to have_content 'test_user1'
+    visit user_path(@user1)
+    click_on "ログアウト"
+    visit new_user_registration_path
+    fill_in "user[name]", with: 'test_user1_newnewnew'
+    fill_in "user[email]", with: 'test_user1_newnewnew@gmail.com'
+    fill_in "user[password]", with: 'test_user1_newnewnew@gmail.comtest_user1_newnewnew@gmail.comtest_user1_newnewnew@gmail.com'
+    fill_in "user[password_confirmation]", with: 'test_user1_newnewnew@gmail.comtest_user1_newnewnew@gmail.comtest_user1_newnewnew@gmail.com'
+    click_on 'Sign up'
+    expect(page).to have_content 'アカウント登録が完了しました。'
   end
 
-  scenario 'ユーザ詳細のテスト' do
-    visit admin_user_path(@event1.id)
-    expect(page).to have_content 'test_event_01'
-  end
 
   scenario "ユーザ更新テスト" do
-    visit edit_user_path(@event1.id)
-    fill_in "user[user_name]", with: 'test_user333'
-    fill_in "user[email]", with: 'test_user1@gmail.com'
-    fill_in "user[password]", with: 'test_user1@gmail.comtest_user1@gmail.com'
-    fill_in "user[password_confirmation]", with: 'test_user1@gmail.comtest_user1@gmail.com'
-    click_on 'commit'
-    expect(page).to have_text "test_user333"
+    visit edit_user_registration_path(@user1)
+    fill_in "user[email]", with: 'test_user1_chage_chage_chage@gmail.com'
+    fill_in "user[password]", with: 'test_user1@gmail.comtest_user1@gmail.com_chage_chage_chage'
+    fill_in "user[password_confirmation]", with: 'test_user1@gmail.comtest_user1@gmail.com_chage_chage_chage'
+    fill_in "user[current_password]", with: @user1.password
+    click_on 'Update'
+    expect(page).to have_text "test_user1_chage_chage_chage@gmail.com"
   end
 
-  scenario "ユーザ削除テスト" do
-    visit admin_users_path
-    first(:link, "削除").click
-    page.driver.browser.switch_to.alert.accept
-    expect(page).to_not have_text "test_user3"
-  end
 end
