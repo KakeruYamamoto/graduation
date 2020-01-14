@@ -44,7 +44,9 @@
     <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </div>
 
-
+  <% if action_name == 'edit' %>
+    <%= link_to 'Destroy', event_path(@event), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>

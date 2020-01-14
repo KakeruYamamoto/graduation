@@ -52,5 +52,7 @@
   <% end %>
   <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id) %><br>
 <% end %>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+
+<%= link_to 'Edit', edit_event_path(@event),class: "btn btn-outline-danger" %>
+
+<%= link_to 'Back', events_path,class: "btn btn-outline-secondary" %>
