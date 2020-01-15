@@ -3,7 +3,6 @@ lock '3.6.0'
 
 set :application, 'graduation'
 
-set :repo_url, 'https://github.com/xxxxxxxxx/yyyyyyyyy'
 set :repo_url, 'https://github.com/KakeruYamamoto/GGraduation.git'
 
 set :branch, ENV['BRANCH'] || 'master'
