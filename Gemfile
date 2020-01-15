@@ -36,6 +36,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Authentication
   gem 'devise'
 
+#AWS
+  gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
