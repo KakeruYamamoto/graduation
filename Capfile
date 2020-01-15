@@ -15,8 +15,8 @@ require "capistrano/deploy"
 #   https://github.com/capistrano/rails
 #   https://github.com/capistrano/passenger
 #
-require 'capistrano/setup'
-require 'capistrano/deploy'
+# require 'capistrano/setup'
+# require 'capistrano/deploy'
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
