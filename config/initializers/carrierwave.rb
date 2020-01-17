@@ -2,7 +2,7 @@ CarrierWave.configure do |config|
   require 'carrierwave/storage/abstract'
   require 'carrierwave/storage/file'
   require 'carrierwave/storage/fog'
-  
+
   config.storage :fog
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
@@ -13,6 +13,7 @@ CarrierWave.configure do |config|
       aws_access_key_id:     Rails.application.credentials.aws[:access_key_id],
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region:                'ap-northeast-1',
+      secret_key_base:        Rails.application.credentials.secret_key_base,
       path_style:            true,
   }
 
