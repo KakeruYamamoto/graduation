@@ -41,8 +41,8 @@ set :rbenv_type, :system
 #
 
 
-# set :log_level, :debug
-set :log_level, :info
+set :log_level, :debug
+# set :log_level, :info
 
 
 namespace :deploy do
