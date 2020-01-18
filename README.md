@@ -89,5 +89,5 @@ https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
 - 辞書機能
   - i18n
 
-# デプロイ予定
+# デプロイ先
 - AWS
