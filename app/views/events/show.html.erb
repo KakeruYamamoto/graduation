@@ -9,22 +9,22 @@
   <% end %>
 <% end %>
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @event.title %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>イベント内容:</strong>
   <%= markdown(@event.content) %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>イメージ:</strong>
   <%= image_tag @event.image.url %>
 </p>
 
 <p>
-  <strong>E date:</strong>
+  <strong>イベント開催日時:</strong>
   <%= @event.e_date_start %>~<%= @event.e_date_end %>
 </p>
 
@@ -50,9 +50,9 @@
       <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
     <% end %>
   <% end %>
-  <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id) %><br>
+  <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
 <% end %>
 
-<%= link_to 'Edit', edit_event_path(@event),class: "btn btn-outline-danger" %>
+<%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %>
 
-<%= link_to 'Back', events_path,class: "btn btn-outline-secondary" %>
+<%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
