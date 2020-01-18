@@ -23,7 +23,7 @@
         <td><%= event.title.truncate(50) %></td>
         <td><%= event.e_date_start %>~<%= event.e_date_end %></td>
         <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" %></td>
-        <td><%= link_to 'Show', event, class: "btn btn-outline-secondary" %></td>
+        <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
       </tr>
     <% end %>
   </tbody>

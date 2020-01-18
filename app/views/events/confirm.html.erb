@@ -22,10 +22,18 @@
     <% end %></span>
   </p>
   <%= form.submit "投稿する" %>
-  <%= form.submit "戻る", name: "back" %>
 <% end %>
 
 <%= form_with(model:@event, url:new_event_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :e_date_start %>
+  <%= form.hidden_field :e_date_end %>
+  <%= form.hidden_field :address %>
+  <%= form.hidden_field :content %>
+  <% @label_ids.each do |label_id| %>
+    <%= form.hidden_field :label_ids, value: label_id, multiple: true %>
+  <% end %>
+
   <%= form.submit "戻る", name: "back" %>
 <% end %>
