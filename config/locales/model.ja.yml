@@ -3,10 +3,15 @@ ja:
     models:
       event: "イベント"
       user: "ユーザー"
+      contact: "お問い合わせ"
     attributes:
       event:
         title: "タイトル"
         content: "内容"
+        image: "イメージ"
+        e_date_start: "イベント開催日時"
+        e_date_end: "イベント終了日時"
+        address: "住所"
       contact:
         name: "名前"
         email: "メールアドレス"
