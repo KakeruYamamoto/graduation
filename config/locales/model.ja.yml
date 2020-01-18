@@ -13,9 +13,10 @@ ja:
         e_date_end: "イベント終了日時"
         address: "住所"
       contact:
+        title: "タイトル"
         name: "名前"
         email: "メールアドレス"
-        content: "内容"
+        content: "お問い合わせ内容"
       user:
         title: "タイトル"
         name: "名前"

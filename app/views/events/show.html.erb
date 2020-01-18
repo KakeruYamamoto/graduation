@@ -35,11 +35,13 @@
   <% end %></span>
 </p>
 
-<% if @parthicipante_users.present? %>
   <h4>参加者</h4>
+<% if @parthicipante_users.present? %>
   <% @parthicipante_users.each do |parthicipante| %>
   <p><%= parthicipante.name %>さん</p>
   <% end %>
+  <% else %>
+  <p>参加者はいません</p>
 <% end %>
 
 <% if user_signed_in? %>
@@ -53,6 +55,6 @@
   <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
 <% end %>
 
-<%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %>
 
-<%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
+
+<p><%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %></p>

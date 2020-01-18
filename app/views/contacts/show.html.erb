@@ -1,22 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @contact.title %>
 </p>
 <p>
-  <strong>Name:</strong>
+  <strong>お名前:</strong>
   <%= @contact.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>メールアドレス:</strong>
   <%= @contact.email %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>お問い合わせ内容:</strong>
   <%= @contact.content %>
 </p>
 
-<%= link_to 'Back', event_path(@contact.event.id) %>
+<%= link_to '戻る', event_path(@contact.event.id) %>
