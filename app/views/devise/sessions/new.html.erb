@@ -22,5 +22,5 @@
     <%= f.submit "Log in" %>
   </div>
 <% end %>
-
+<p><%= link_to 'ゲストログイン（閲覧用）', events_guest_sign_in_path, method: :post ,class: "btn btn-outline-success"%></p>
 <%= render "devise/shared/links" %>

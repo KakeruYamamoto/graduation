@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :parthicipant_managements, only: [:create, :destroy]
   get 'users/show'
   get 'search', to: 'events#search'
+  post '/events/guest_sign_in', to: 'events#new_guest'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
         registrations: 'users/registrations'
