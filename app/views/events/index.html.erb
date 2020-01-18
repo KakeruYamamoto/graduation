@@ -11,23 +11,26 @@
 <% else %>
   <h1>Events</h1>
 <% end %>
-  <div class="contents mx-auto">
-    <div class="row center-block">
-      <% @events.each do |event| %>
-      <div class="card-deck col-sm-6 col-md-3 mt-5" >
-       <div class="card img-thumbnail">
-         <%= link_to event,class: "event_link" do %>
-          <%= image_tag event.image.url , class: "card-img-top" %>
-          <div class="card-body px-2 py-3">
-            <h4 class="card-title"><%= event.title.truncate(20) %></h4>
-            <p class="card-text"><%= markdown(event.content.truncate(30)) %></p>
-            </div>
-          <% end %>
+  <div class="container-fluid">
+    <div class="contents mx-auto">
+      <div class="row center-block">
+        <% @events.each do |event| %>
+        <div class="card-deck col-sm-6 col-md-3 mt-5" >
+         <div class="card img-thumbnail">
+           <%= link_to event,class: "event_link" do %>
+            <%= image_tag event.image.url , class: "card-img-top" %>
+            <div class="card-body px-2 py-3">
+              <h4 class="card-title"><%= event.title.truncate(20) %></h4>
+              <p class="card-text"><%= markdown(event.content.truncate(30)) %></p>
+              </div>
+            <% end %>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
+
 
   <div class="paginate">
     <%= paginate @events %>
