@@ -1,6 +1,6 @@
 # README
 
-# EVENT KEEPER(URL:http://18.182.182.144/events)
+# EVENT KEEPER (URL:http://18.182.182.144/events)
 
 
 ## 概要
