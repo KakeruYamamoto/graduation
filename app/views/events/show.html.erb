@@ -35,6 +35,7 @@
   <% end %></span>
 </p>
 
+<% if user_signed_in? %>
   <h4>参加者</h4>
 <% if @parthicipante_users.present? %>
   <% @parthicipante_users.each do |parthicipante| %>
@@ -44,7 +45,6 @@
   <p>参加者はいません</p>
 <% end %>
 
-<% if user_signed_in? %>
   <% unless @event.user_id == current_user.id %>
     <% if @current_user_parthicipant.present? %>
       <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipante.ids), method: :delete, class: 'btn btn-danger' %><br>
