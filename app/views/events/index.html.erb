@@ -19,8 +19,8 @@
          <%= link_to event,class: "event_link" do %>
           <%= image_tag event.image.url , class: "card-img-top" %>
           <div class="card-body px-2 py-3">
-            <h4 class="card-title"><%= event.title %></h4>
-            <p class="card-text"><%= markdown(event.content) %></p>
+            <h4 class="card-title"><%= event.title.truncate(20) %></h4>
+            <p class="card-text"><%= markdown(event.content.truncate(30)) %></p>
             </div>
           <% end %>
         </div>

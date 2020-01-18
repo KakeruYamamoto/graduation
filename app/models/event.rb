@@ -12,5 +12,7 @@ class Event < ApplicationRecord
   has_many :labels, through: :labelings, source: :label
 
   validates :content,  presence: true
-  validates :title,  presence: true
+  validates :title,  presence: true, length:{maximum:75}
+  validates :e_date_start, presence: true
+  validates :address, presence: true
 end
