@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :render_index]
   before_action:destroy_message, only: [:destroy]
+  before_action:event_organizer_or_admin?, only: [:edit, :update, :destroy]
+
 
   def index
     @events = Event.order(e_date_start: :desc).page(params[:page]).per(12)
@@ -78,11 +80,12 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    # binding.pry
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.admin? || current_user.id == @event.user.id
+      @event.destroy
+      respond_to do |format|
+        format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -110,4 +113,9 @@ class EventsController < ApplicationController
     params.require(:contact).permit(:title, :email, :content, :event_id, :name)
   end
 
+  def event_organizer_or_admin?
+    unless current_user.admin? || current_user.id == @event.user.id
+      render :index, notice: "イベント主催者以外編集はできません"
+    end
+  end
 end
