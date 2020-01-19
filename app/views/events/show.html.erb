@@ -1,6 +1,10 @@
 <div class="text-center">
   <div class="container">
 
+    <% require 'date' %>
+    <% date = Date.today %>
+    <% weeks = ["月","火","水","木","金","土","日"] %>
+    <% index = date.strftime("%u").to_i %>
 
     <p id="notice"><%= notice %></p>
     <% if user_signed_in? %>
@@ -24,8 +28,14 @@
 
     <p>
       <strong>イベント開催日時</strong>
-      <%= @event.e_date_start %>~<%= @event.e_date_end %>
+      <%= @event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= @event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if @event.e_date_end.present? %>
     </p>
+
+    <p>
+      <strong>開催場所</strong>
+      <%= @event.address %>
+    </p>
+
     <p>
       <strong>ラベル:</strong>
       <span class="labels"><% @event.labels.each do |label| %>

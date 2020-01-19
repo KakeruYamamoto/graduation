@@ -1,6 +1,11 @@
 <div class="text-center">
   <div class="container">
 
+  <% require 'date' %>
+  <% date = Date.today %>
+  <% weeks = ["月","火","水","木","金","土","日"] %>
+  <% index = date.strftime("%u").to_i %>
+
 
 <h1><%= @user.name %>さんのページ</h1>
 <p><%= image_tag @user.icon.url , :size =>'100x100'%></p>
@@ -25,7 +30,7 @@
       <tr>
         <td><%= image_tag event.image.url, :size =>'100x100' %></td>
         <td><%= event.title.truncate(50) %></td>
-        <td><%= event.e_date_start %>~<%= event.e_date_end %></td>
+        <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
         <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" %></td>
         <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
       </tr>
