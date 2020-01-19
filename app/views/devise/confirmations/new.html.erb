@@ -1,20 +1,21 @@
-<body class="text-center ">
+<div class="text-center ">
   <div class="comtainer">
-    <h2>Resend confirmation instructions</h2>
+    <br>
+    <h2>確認手順を再送信</h2>
 
     <%= form_for(resource, as: resource_name,class:"form-signin", url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
+      <br>
       <div class="row justify-content-center">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+        <%= f.label :email ,class: "sr-only"%><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),class: "form-control",id: "inputUser",placeholder: "Emailアドレス" %>
       </div>
-
+      <br>
       <div class="row justify-content-center col-xs-3">
-        <%= f.submit "Resend confirmation instructions" %>
+        <%= f.submit "確認手順を再送信" ,class: "btn btn-lg btn-primary "　%>
       </div>
     <% end %>
-
+    <br>
     <%= render "devise/shared/links" %>
   </div>
-</body>
+</div>
