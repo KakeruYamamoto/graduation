@@ -50,7 +50,7 @@
     <div class="row justify-content-center">
       <%= f.label :password,class: "sr-only" %>
       <% if @minimum_password_length %>
-      <%= f.password_field :password, autocomplete: "new-password", autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "パスワード (#{@minimum_password_length}文字以上) " %>
+      <%= f.password_field :password, autocomplete: "new-password" ,class: "form-control",id: "inputUser",placeholder: "パスワード (#{@minimum_password_length}文字以上) " %>
       <% end %><br />
     </div>
 
@@ -58,7 +58,7 @@
 
     <div class="row justify-content-center">
       <%= f.label :password_confirmation,class: "sr-only" %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "確認用パスワード" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: "form-control",id: "inputUser",placeholder: "確認用パスワード" %>
     </div>
 
     <br>
