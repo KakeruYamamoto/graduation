@@ -1,27 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<h1>参加予定のイベント</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>イメージ</th>
-      <th>タイトル</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @parthicipante_events.each do |event| %>
-      <tr>
-        <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-        <td><%= event.title.truncate(50) %></td>
-        <td><%= link_to '記事を読む', event %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="text-center">
+  <div class="container">
 <br>
+  <p id="notice"><%= notice %></p>
+  <br>
+  <h1>参加予定のイベント</h1>
 
-<%= link_to '戻る', events_path %>
+  <table>
+    <thead>
+      <tr>
+        <th>イメージ</th>
+        <th>タイトル</th>
+        <th>イベント開催日時</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @parthicipante_events.each do |event| %>
+        <tr>
+          <td><%= image_tag event.image.url, :size =>'100x100' %></td>
+          <td><%= event.title.truncate(50) %></td>
+          <td><%= event.e_date_start %>~<%= event.e_date_end %></td>
+          <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+
+  <%= link_to '戻る', events_path %>
+  <z
+</div>
