@@ -1,4 +1,4 @@
-<%= search_form_for(@q, url:search_path, html: {class: 'form-inline my-2 my-lg-0 ml-auto'}) do |f| %>
+<%= search_form_for(@q, url:search_events_path, html: {class: 'form-inline my-2 my-lg-0 ml-auto'}) do |f| %>
 
     <%= f.text_field :title_or_content_or_address_cont_any, class: "form-control mr-sm-2", placeholder: "キーワード検索" %>
     <%= f.submit(class: "btn btn-outline-success my-2 my-sm-0") %>

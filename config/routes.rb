@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :favorites, only: [:create, :destroy]
   resources :parthicipant_managements, only: [:create, :destroy]
   get 'users/show'
-  get 'search', to: 'events#search'
-  post '/events/guest_sign_in', to: 'events#new_guest'
+  # get 'search', to: 'events#search'
+  # post '/events/guest_sign_in', to: 'events#new_guest'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
         registrations: 'users/registrations'
@@ -15,13 +15,21 @@ Rails.application.routes.draw do
   resources :events do
     collection do
       post :confirm
-    end
-    collection do
+      # post :guest_sign_in, as: 'events#new_guest'
+      post :new_guest,as:'guest_sign_in'
       get :favorite
-    end
-    collection do
       get :parthicipante_events
+      get :search
     end
+    # collection do
+    #   get :favorite
+    # end
+    # collection do
+    #   get :parthicipante_events
+    # end
+    # collection do
+    #   post :new_guest
+    # end
   end
 
 end
