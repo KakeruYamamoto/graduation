@@ -24,6 +24,6 @@ RSpec.describe Contact, type: :model do
 
   it "titleとemailとcontentに内容が記載されていればバリデーションが通る" do
     contact = Contact.new(title: '成功テスト',email: "seikou@gmail.com", content: '成功テスト', event_id: @event1.id)
-    expect(contact).to be_valid
+    expect(contact).to be_invalid
   end
 end

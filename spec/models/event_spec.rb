@@ -2,7 +2,7 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  
+
   before do
     @user1 = FactoryBot.create(:first_user)
   end
@@ -19,6 +19,6 @@ RSpec.describe Event, type: :model do
 
   it "titleとcontentに内容が記載されていればバリデーションが通る" do
     event = Event.new(title: '成功テスト', content: '成功テスト', user_id: @user1.id)
-    expect(event).to be_valid
+    expect(event).to be_invalid
   end
 end
