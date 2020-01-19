@@ -23,7 +23,7 @@
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <div>現在の確認待ち： <%= resource.unconfirmed_email %></div>
       <% end %>
       <br>
       <div class="row justify-content-center">

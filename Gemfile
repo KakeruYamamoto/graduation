@@ -21,6 +21,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
   gem 'kaminari-bootstrap'
   gem 'redcarpet'
   gem 'rouge'
+  gem 'rails-i18n'
 
 # Backend
   gem 'carrierwave'

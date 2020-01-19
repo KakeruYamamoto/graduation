@@ -6,7 +6,7 @@
     <%= form_with(model: @contact, local: true) do |form| %>
     <% if @contact.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+      <h2><%= pluralize(@contact.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
 
       <ul>
         <% @contact.errors.full_messages.each do |message| %>

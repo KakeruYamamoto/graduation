@@ -7,36 +7,37 @@
   <% index = date.strftime("%u").to_i %>
 
 
-<h1><%= @user.name %>さんのページ</h1>
-<p><%= image_tag @user.icon.url , :size =>'100x100'%></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
-<p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-light" %></p>
+    <h1><%= @user.name %>さんのページ</h1>
+    <p><%= image_tag @user.icon.url , :size =>'100x100'%></p>
+    <p>メールアドレス : <%= @user.email %></p>
+    <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
+    <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-light" %></p>
 
-<p>主催しているイベント一覧</p>
-<table>
-  <thead>
-    <tr>
-      <th>イメージ</th>
-      <th>タイトル</th>
-      <th>イベント開催日時</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <p>主催しているイベント一覧</p>
+    <table>
+      <thead>
+        <tr>
+          <th>イメージ</th>
+          <th>タイトル</th>
+          <th>イベント開催日時</th>
+          <th></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @users.each do |event| %>
-      <tr>
-        <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-        <td><%= event.title.truncate(50) %></td>
-        <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
-        <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" %></td>
-        <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @users.each do |event| %>
+          <tr>
+            <td><%= image_tag event.image.url, :size =>'100x100' %></td>
+            <td><%= event.title.truncate(50) %></td>
+            <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
+            <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" %></td>
+            <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
   </div>
 </div>
