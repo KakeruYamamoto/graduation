@@ -5,11 +5,11 @@
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="row justify-content-center">
-      <% if @user.icon? %>
+      <%# <% if @user.icon? %>
         <%= image_tag @user.icon.url,:size =>'180x180', id: :img_prev %>
-      <% else %>
-        <%= image_tag "/assets/my_page_default_img.png", :size => '180x180', id: :img_prev %>
-      <% end %>
+      <%# <% else %>
+        <%# <%= image_tag "/assets/my_page_default_img.png", :size => '180x180', id: :img_prev %> %>
+      <%# <% end %>
       <!-- <script type="text/javascript">
       $(function() {
        function readURL(input) {
