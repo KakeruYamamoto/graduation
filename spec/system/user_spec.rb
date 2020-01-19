@@ -13,10 +13,10 @@ RSpec.describe "ユーザ管理機能", type: :system do
   end
 
   before(:each) do
-    visit new_user_session_path
+    visit user_session_path
     fill_in 'user[email]', with: @user1.email
     fill_in 'user[password]', with: @user1.password
-    click_on "Log in"
+    click_on "サインイン"
   end
 
 

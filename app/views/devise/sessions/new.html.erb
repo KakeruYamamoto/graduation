@@ -4,6 +4,8 @@
     <img class="mb-4" src="/assets/cooltext346301432829149.png" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">ログイン</h1>
 
+    <%= notice %>
+
     <div class="row justify-content-center">
       <%= f.label :email ,class: "sr-only" %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "Emailアドレス" %>
