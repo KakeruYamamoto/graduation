@@ -1,22 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="text-center">
+  <div class="container">
+    <br>
+    <p id="notice"><%= notice %></p>
+    <br>
+    <p>
+      <strong>タイトル:</strong>
+      <%= @contact.title %>
+    </p>
+    <p>
+      <strong>お名前:</strong>
+      <%= @contact.name %>
+    </p>
 
-<p>
-  <strong>タイトル:</strong>
-  <%= @contact.title %>
-</p>
-<p>
-  <strong>お名前:</strong>
-  <%= @contact.name %>
-</p>
+    <p>
+      <strong>返信用メールアドレス:</strong>
+      <%= @contact.email %>
+    </p>
 
-<p>
-  <strong>メールアドレス:</strong>
-  <%= @contact.email %>
-</p>
+    <p>
+      <strong>お問い合わせ内容:</strong>
+      <%= @contact.content %>
+    </p>
 
-<p>
-  <strong>お問い合わせ内容:</strong>
-  <%= @contact.content %>
-</p>
-
-<%= link_to '戻る', event_path(@contact.event.id) %>
+    <%= link_to '戻る', event_path(@contact.event.id) %>
+  </div>
+</div>
