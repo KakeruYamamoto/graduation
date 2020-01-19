@@ -1,62 +1,71 @@
-<p id="notice"><%= notice %></p>
-<% if user_signed_in? %>
-  <% unless @event.user_id == current_user.id %>
-    <% if @favorite.present? %>
-      <%= link_to 'あとで見るリストから外す', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-    <% else %>
-      <%= link_to 'あとで見る', favorites_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
+<div class="text-center">
+  <div class="container">
+
+
+    <p id="notice"><%= notice %></p>
+    <% if user_signed_in? %>
+      <% unless @event.user_id == current_user.id %>
+        <% if @favorite.present? %>
+          <%= link_to 'あとで見るリストから外す', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
+        <% else %>
+          <%= link_to 'あとで見る', favorites_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-<% end %>
-<p>
-  <strong>タイトル:</strong>
-  <%= @event.title %>
-</p>
+    <br>
+    <h1>
+      <%= @event.title %>
+    </h1>
 
-<p>
-  <strong>イベント内容:</strong>
-  <%= markdown(@event.content) %>
-</p>
 
-<p>
-  <strong>イメージ:</strong>
-  <%= image_tag @event.image.url %>
-</p>
+    <p>
+      <%= image_tag @event.image.url %>
+    </p>
 
-<p>
-  <strong>イベント開催日時:</strong>
-  <%= @event.e_date_start %>~<%= @event.e_date_end %>
-</p>
+    <p>
+      <strong>イベント開催日時</strong>
+      <%= @event.e_date_start %>~<%= @event.e_date_end %>
+    </p>
+    <p>
+      <strong>ラベル:</strong>
+      <span class="labels"><% @event.labels.each do |label| %>
+        <%= label.name %>
+        <% end %></span>
+      </p>
 
-<p>
-  <strong>ラベル:</strong>
-  <span class="labels"><% @event.labels.each do |label| %>
-  <%= label.name %>
-  <% end %></span>
-</p>
+    <p>
+      <strong>イベント内容</strong>
+      <br>
+      <%= markdown(@event.content) %>
+    </p>
 
-<% if user_signed_in? %>
-  <h4>参加者</h4>
-<% if @parthicipante_users.present? %>
-  <% @parthicipante_users.each do |parthicipante| %>
-  <p><%= parthicipante.name %>さん</p>
-  <% end %>
-  <% else %>
-  <p>参加者はいません</p>
-<% end %>
 
-  <% unless @event.user_id == current_user.id %>
-    <% if @current_user_parthicipant.present? %>
-      <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipante.ids), method: :delete, class: 'btn btn-danger' %><br>
-    <% else %>
-      <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
+    <% if user_signed_in? %>
+      <h4>参加者</h4>
+    <% if @parthicipante_users.present? %>
+      <% @parthicipante_users.each do |parthicipante| %>
+      <p><%= parthicipante.name %>さん</p>
+      <% end %>
+      <% else %>
+      <p>参加者はいません</p>
     <% end %>
-    <% else %>
-    <p><%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %></p>
-  <% end %>
-  <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
-<% end %>
+
+      <% unless @event.user_id == current_user.id %>
+        <% if @current_user_parthicipant.present? %>
+          <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipante.ids), method: :delete, class: 'btn btn-danger' %><br>
+        <% else %>
+          <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
+        <% end %>
+        <% else %>
+        <p><%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %></p>
+      <% end %>
+      <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
+    <% end %>
 
 
 
-<p><%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %></p>
+    <p><%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %></p>
+
+
+  </div>
+</div>
