@@ -1,4 +1,5 @@
-  <div class="jumbotron jumbotron-fluid text-center">
+<div class="text-center">
+  <div class="jumbotron jumbotron-fluid">
       <div class="container">
           <h1 class="display-3">EVENT KEEPER</h1>
           <p class="lead">365日24時間エンターテイメント！</p>
@@ -8,8 +9,6 @@
 
 <% if current_user.try(:admin?) %>
   <h1>Events_admin</h1>
-<% else %>
-  <h1>Events</h1>
 <% end %>
   <div class="container-fluid">
     <div class="contents mx-auto">
@@ -30,7 +29,7 @@
       </div>
     </div>
   </div>
-
+</div>
 
   <div class="paginate">
     <%= paginate @events %>

@@ -1,53 +1,57 @@
-<%= form_with(model: event, local: true, url:choose_new_or_edit) do |form| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+<div class="text-center">
+  <div class="container">
+    <%= form_with(model: event, local: true, url:choose_new_or_edit) do |form| %>
+      <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+      <br>
+      <div class="row justify-content-center">
+        <p><%= form.label :image,class: "sr-only" %></p>
+        <%= image_tag(@event.image.url, class: "img-fluid" )if @event.image && @event.image.url %>
+        <%= form.file_field :image%>
+        <%= form.hidden_field :image_cache %>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <%= form.label :e_date_start %>
+        <%= form.datetime_select :e_date_start %>~
+        <%= form.datetime_select :e_date_end %>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <%= form.label :title,class: "sr-only" %>
+        <%= form.text_field :title, autocomplete: "title" ,class: "form-control",id: "inputUser",placeholder: "イベントタイトル" %>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <%= form.label :address,class: "sr-only" %>
+        <%= form.text_field :address, autocomplete: "address" ,class: "form-control",id: "inputUser",placeholder: "開催場所の住所" %>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <%= form.label :content,class: "sr-only" %>
+        <%= form.text_area :content , autocomplete: "content" ,class: "form-control",id: "exampleFormControlTextarea1",rows: "10",placeholder: "イベント詳細を記述してください。マークダウン記法が使えます" %>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+      </div>
+      <br>
+      <% if action_name == 'edit' %>
+        <%= link_to '削除', event_path(@event), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+      <% end %>
+      <div class="row justify-content-center col-xs-3">
+        <%= form.submit "登録する",class: "btn btn-lg btn-primary " %>
+      </div>
+      <br>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :e_date_start %>
-    <%= form.datetime_select :e_date_start %>~
-    <%= form.datetime_select :e_date_end %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-
-  <div class="field">
-    <p><%= form.label :image %></p>
-    <%= image_tag(@event.image.url, :size =>'100x100')if @event.image && @event.image.url %>
-    <%= form.file_field :image%>
-    <%= form.hidden_field :image_cache %>
-  </div>
-
-  <div class="field">
-    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
-  </div>
-
-  <% if action_name == 'edit' %>
-    <%= link_to '削除', event_path(@event), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
-  <% end %>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
