@@ -1,27 +1,35 @@
-<h2>ログイン</h2>
+<body class="text-center ">
+  <div class="comtainer">
+    <%= form_for(resource, as: resource_name,class:"form-signin", url: session_path(resource_name)) do |f| %>
+    <img class="mb-4" src="/assets/cooltext346301432829149.png" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">サインイン</h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-<br/>
-  <div class="field">
-    <%= f.label :password %><br/>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field", style="display: inline">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me  %>
+    <div class="row justify-content-center">
+      <%= f.label :email ,class: "sr-only" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control",id: "inputEmail",placeholder: "Emailアドレス" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="row justify-content-center">
+      <%= f.label :password ,class: "sr-only" %>
+      <%= f.password_field :password, autocomplete: "current-password",class: "form-control",id: "inputPassword", placeholder: "パスワード" %>
+    </div>
+
+    <div class="form-check mb-3">
+      <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me  %>
+      <% end %>
+    </div>
+
+    <div class="row justify-content-center col-xs-3" >
+      <%= f.submit "サインイン" ,class: "btn btn-lg btn-primary "%>
+    </div>
+    </br>
+    <% end %>
+    <p><%= link_to 'ゲストログイン（閲覧用）', guest_sign_in_events_path, method: :post ,class: "btn btn-outline-success"%></p>
+    <%= render "devise/shared/links" %>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
   </div>
-<% end %>
-<br/>
-<p><%= link_to 'ゲストログイン（閲覧用）', guest_sign_in_events_path, method: :post ,class: "btn btn-outline-success"%></p>
-<%= render "devise/shared/links" %>
+</body>
