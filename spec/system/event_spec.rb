@@ -17,7 +17,7 @@ RSpec.describe "イベント管理機能", type: :system do
     visit new_user_session_path
     fill_in 'user[email]', with: @user1.email
     fill_in 'user[password]', with: @user1.password
-    click_on "Log in"
+    click_on "サインイン"
   end
 
   scenario 'イベント一覧のテスト' do
@@ -46,8 +46,8 @@ RSpec.describe "イベント管理機能", type: :system do
   end
 
   scenario "イベント更新テスト" do
-    visit event_path(@event2)
-    click_on 'Edit'
+    visit event_path(@event2.id)
+    click_on '編集'
     fill_in "event[title]", with: 'eventsample22'
     fill_in "event[address]", with: '東京'
     select "2020", from: "event[e_date_start(1i)]"
@@ -56,14 +56,14 @@ RSpec.describe "イベント管理機能", type: :system do
     select "12", from: "event[e_date_start(4i)]"
     select '00', from: 'event[e_date_start(5i)]'
     fill_in "event[content]", with: 'eventtesteventtesteventtest22'
-    click_on '更新する'
+    click_on '登録する'
     expect(page).to have_content 'eventtesteventtesteventtest22'
     expect(page).to have_content 'eventsample22'
   end
 
   scenario "イベント削除" do
     visit edit_event_path(@event3)
-    click_on "Destroy"
+    click_on "イベントを中止にする"
     page.driver.browser.switch_to.alert.accept
     expect(page).to have_text "Event was successfully destroyed."
     expect(page).not_to have_text "test_event_03"
