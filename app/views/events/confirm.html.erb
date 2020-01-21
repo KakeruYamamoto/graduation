@@ -1,5 +1,11 @@
 <div class="text-center">
   <div class="container">
+
+    <% require 'date' %>
+    <% date = Date.today %>
+    <% weeks = ["月","火","水","木","金","土","日"] %>
+    <% index = date.strftime("%u").to_i %>
+
     <br>
     <h1>確認画面</h1>
 
@@ -15,7 +21,7 @@
       <% @label_ids.each do |label_id| %>
         <%= form.hidden_field :label_ids, value: label_id, multiple: true %>
       <% end %>
-      <p>開催日時<%= @event.e_date_start %>~<%= @event.e_date_end %>まで</p>
+      <p>開催日時<%= @event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= @event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if @event.e_date_end.present? %>まで</p>
       <p>開催場所：<%= @event.address %></p>
       <p><%= markdown(@event.content) %></p>
       <p>
