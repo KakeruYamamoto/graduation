@@ -2,7 +2,7 @@
   <div class="container">
     <%= form_with(model: event, local: true, url:choose_new_or_edit) do |form| %>
       <% if event.errors.any? %>
-        <div id="error_explanation">
+        <div class="alert alert-warning" id="error_explanation">
           <h2><%= pluralize(event.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
 
           <ul>
