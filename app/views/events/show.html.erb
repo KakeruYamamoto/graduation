@@ -51,25 +51,36 @@
 
 
     <% if user_signed_in? %>
-      <h4>参加者</h4>
-    <% if @parthicipante_users.present? %>
-      <% @parthicipante_users.each do |parthicipante| %>
-      <p><%= parthicipante.name %>さん</p>
-      <% end %>
-      <% else %>
-      <p>参加者はいません</p>
-    <% end %>
 
-      <% unless @event.user_id == current_user.id %>
-        <% if @current_user_parthicipant.present? %>
-          <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipante.ids), method: :delete, class: 'btn btn-danger' %><br>
+      <% if @event.e_date_start <= Time.now %>
+      <h2>このイベントは終了いたしました</h2>
+      <% else %>
+
+      <h4>参加者</h4>
+        <% if @parthicipante_users.present? %>
+          <% @parthicipante_users.each do |parthicipante| %>
+          <p><%= parthicipante.name %>さん</p>
+          <% end %>
         <% else %>
-          <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
+          <p>参加者はいません</p>
         <% end %>
-        <% else %>
+
+        <% unless @event.user_id == current_user.id %>
+
+          <% if @current_user_parthicipant.present? %>
+            <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @parthicipante.ids), method: :delete, class: 'btn btn-danger' %><br>
+          <% else %>
+            <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
+          <% end %>
+
+          <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
+        <% end %>
+      <% end %>
+
+      <% if @event.user_id == current_user.id %>
         <p><%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %></p>
       <% end %>
-      <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
+
     <% end %>
 
 
