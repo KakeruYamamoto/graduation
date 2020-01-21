@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver
-        format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
+        format.html { redirect_to @contact, notice: 'お問い合わせを送信しました！' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.html { redirect_to contacts_url, notice: 'お問い合わせを削除しました！' }
       format.json { head :no_content }
     end
   end
