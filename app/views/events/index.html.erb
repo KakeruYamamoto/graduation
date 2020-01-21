@@ -17,7 +17,7 @@
         <div class="card-deck col-sm-6 col-md-3 mt-5" >
          <div class="card img-thumbnail">
            <%= link_to event,class: "event_link" do %>
-            <%= image_tag event.image.url , class: "card-img-top" %>
+            <%= image_tag event.image.url , :size =>'450x300', class: "card-img-top" %>
             <div class="card-body px-2 py-3">
               <h4 class="card-title"><%= event.title.truncate(20) %></h4>
               <p class="card-text"><%= event.content.truncate(30) %></p>
