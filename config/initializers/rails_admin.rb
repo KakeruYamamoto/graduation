@@ -1,7 +1,8 @@
 RailsAdmin.config do |config|
 
+  #例外処理
   config.parent_controller = 'ApplicationController'
-  
+
   ### Popular gems integration
 
 
