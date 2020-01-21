@@ -16,8 +16,11 @@
       <div class="row justify-content-center">
         <p><%= form.label :image,class: "sr-only" %></p>
         <%= image_tag(@event.image.url, class: "img-fluid" )if @event.image && @event.image.url %>
-        <%= form.file_field :image%>
         <%= form.hidden_field :image_cache %>
+      </div>
+      <br>
+      <div class="file_field_btn">
+        <%= form.file_field :image%>
       </div>
       <br>
       <div class="row justify-content-center">
