@@ -1,14 +1,15 @@
 <div class="text-center">
   <div class="container">
+    <br>
   <h2>アカウント作成</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-
+    <br>
     <div class="row justify-content-center">
       <%# <% if @user.icon? %>
         <%= image_tag @user.icon.url,:size =>'180x180', id: :img_prev %>
       <%# <% else %>
-        <%# <%= image_tag "/assets/my_page_default_img.png", :size => '180x180', id: :img_prev %> 
+        <%# <%= image_tag "/assets/my_page_default_img.png", :size => '180x180', id: :img_prev %>
       <%# <% end %>
       <!-- <script type="text/javascript">
       $(function() {
@@ -27,8 +28,12 @@
       });
       </script> -->
       <%= f.label :icon,class: "sr-only" %><br />
-      <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
+
       <%= f.hidden_field :icon_cache %>
+    </div>
+    <br>
+    <div class="file_field_btn">
+      <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
 
     <br>
