@@ -29,11 +29,19 @@ RSpec.describe "イベント管理機能", type: :system do
     visit new_event_path
     fill_in "event[title]", with: 'eventsample'
     fill_in "event[address]", with: '東京'
+
     select "2020", from: "event[e_date_start(1i)]"
     select "1月", from: "event[e_date_start(2i)]"
     select "1", from: "event[e_date_start(3i)]"
     select "12", from: "event[e_date_start(4i)]"
     select '00', from: 'event[e_date_start(5i)]'
+
+    select "2020", from: "event[e_date_end(1i)]"
+    select "1月", from: "event[e_date_end(2i)]"
+    select "1", from: "event[e_date_end(3i)]"
+    select "13", from: "event[e_date_end(4i)]"
+    select '00', from: 'event[e_date_end(5i)]'
+
     fill_in "event[content]", with: 'eventtesteventtesteventtest'
     click_on '登録する'
     expect(page).to have_content 'eventtesteventtesteventtest'
@@ -55,6 +63,14 @@ RSpec.describe "イベント管理機能", type: :system do
     select "1", from: "event[e_date_start(3i)]"
     select "12", from: "event[e_date_start(4i)]"
     select '00', from: 'event[e_date_start(5i)]'
+
+    select "2020", from: "event[e_date_end(1i)]"
+    select "1月", from: "event[e_date_end(2i)]"
+    select "1", from: "event[e_date_end(3i)]"
+    select "14", from: "event[e_date_end(4i)]"
+    select '00', from: 'event[e_date_end(5i)]'
+
+
     fill_in "event[content]", with: 'eventtesteventtesteventtest22'
     click_on '登録する'
     expect(page).to have_content 'eventtesteventtesteventtest22'
@@ -65,16 +81,16 @@ RSpec.describe "イベント管理機能", type: :system do
     visit edit_event_path(@event3)
     click_on "イベントを中止にする"
     page.driver.browser.switch_to.alert.accept
-    expect(page).to have_text "Event was successfully destroyed."
+    expect(page).to have_text "イベントを削除しました！"
     expect(page).not_to have_text "test_event_03"
   end
 
 
   scenario "イベント検索のテスト" do
     visit events_path
-    fill_in "q[title_or_content_or_address_cont_any]", with: 'Factoryで作ったデフォルトのコンテント１'
+    fill_in "q[title_or_content_or_address_cont_any]", with: 'test_event_01'
 
     click_on '検索'
-    expect(page).to have_content "Factoryで作ったデフォルトのコンテント１"
+    expect(page).to have_content "test_event_01"
   end
 end
