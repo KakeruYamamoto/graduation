@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     events_path
   end
 
-
   protected
 
   def configure_permitted_parameters
