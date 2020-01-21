@@ -64,7 +64,7 @@
         <% else %>
           <p>参加者はいません</p>
         <% end %>
-
+<!-- @parthicipante  @current_user_parthicipantv比べよう -->
         <% unless @event.user_id == current_user.id %>
           <% if @current_user_parthicipant.present? %>
             <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @current_user_parthicipant.id), method: :delete, class: 'btn btn-danger' %><br>
