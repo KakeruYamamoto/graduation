@@ -14,7 +14,7 @@
     <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-light" %></p>
 
     <p>主催しているイベント一覧</p>
-    <table>
+    <table id="event_list" >
       <thead>
         <tr>
           <th>イメージ</th>
@@ -37,7 +37,7 @@
         <% end %>
       </tbody>
     </table>
-    
+
   <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
   </div>
 </div>
