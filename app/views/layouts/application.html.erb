@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse" id="navbarForm">
           <ul class="navbar-nav">
 
-            <% if user_signed_in? %>
+          <% if user_signed_in? %>
 
             <li class="nav-item">
               <%= link_to "イベント一覧", events_path, class:"nav-link" %>
@@ -47,7 +47,12 @@
               <%= link_to "新規イベント作成", new_event_path, class:"nav-link" %>
             </li>
 
-            <% else %>
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to "管理者ページ" ,  rails_admin_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          <% else %>
 
             <li class="nav-item">
               <%= link_to "イベント一覧", events_path, class:"nav-link" %>
@@ -59,7 +64,7 @@
               <%= link_to "ログイン", new_user_session_path, class:"nav-link" %>
             </li>
 
-            <% end %>
+          <% end %>
           </ul>
             <%= render 'events/search_form' %>
         </div>
