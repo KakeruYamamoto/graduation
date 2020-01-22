@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
     <title>Graduation</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <!-- <meta name="viewport" content="width=device-width"> -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -48,10 +46,11 @@
             </li>
 
             <% if current_user.admin? %>
-              <li>
-                <%= link_to "管理者ページ" ,  rails_admin_path, class: "nav-link" %>
-              </li>
+            <li class="nav-item admin_nav" >
+              <%= link_to "管理者ページ" ,  rails_admin_path, class: "nav-link" %>
+            </li>
             <% end %>
+
           <% else %>
 
             <li class="nav-item">
