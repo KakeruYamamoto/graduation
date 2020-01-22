@@ -15,8 +15,14 @@ class Event < ApplicationRecord
 
 
   validate :event_end_check
+  validate :event_date_check
 
   def event_end_check
       errors.add(:e_date_end, 'がイベント開始日時より後になっています') if e_date_end.nil? || e_date_end < e_date_start
   end
+
+  def event_date_check
+    errors.add(:e_date_start, 'が現在の日時より下回っています。”当日開催はご遠慮ください”') if e_date_start <= Time.now
+  end
+
 end
