@@ -1,17 +1,6 @@
 <div class="text-center">
   <div class="container">
     <%= form_with(model: event, local: true, url:choose_new_or_edit) do |form| %>
-      <% if event.errors.any? %>
-        <div class="alert alert-warning" id="error_explanation">
-          <h2><%= pluralize(event.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
-
-          <ul>
-          <% event.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
       <br>
       <div class="row justify-content-center">
         <p><%= form.label :image,class: "sr-only" %></p>
@@ -22,6 +11,18 @@
       <div class="file_field_btn">
         <%= form.file_field :image%>
       </div>
+      <br>
+      <% if event.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(event.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
+        <ul>
+          <% event.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
       <br>
       <div class="row justify-content-center">
         <%= form.label :e_date_start %>
