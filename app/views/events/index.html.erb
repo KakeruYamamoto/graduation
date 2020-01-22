@@ -19,9 +19,14 @@
            <%= link_to event,class: "event_link" do %>
             <%= image_tag event.image.url , :size =>'450x300', class: "card-img-top" %>
             <div class="card-body px-2 py-3">
-              <h4 class="card-title"><%= event.title.truncate(20) %></h4>
-              <p class="card-text"><%= event.content.truncate(30) %></p>
-              </div>
+              <% if event.e_date_start <= Time.now %>
+                <h5 class="card-title"><%= event.title.truncate(20) %></h5>
+                <h4 class="alert alert-warning">このイベントは終了致しました</h4>
+              <% else %>
+                <h4 class="card-title"><%= event.title.truncate(20) %></h4>
+                <p class="card-text"><%= event.content.truncate(30) %></p>
+              <% end %>
+            </div>
             <% end %>
           </div>
         </div>
