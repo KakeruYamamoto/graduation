@@ -17,13 +17,18 @@
       <% end %>
     <% end %>
     <br>
+
+    <div class="row">
+
+    </div>
+
     <h1>
       <%= @event.title %>
     </h1>
 
 
-    <p>
-      <%= image_tag @event.image.url , :size =>'750x500' %>
+    <p class="col-12">
+      <%= image_tag @event.image.url ,class: "img-fluid" %>
     </p>
 
     <p>
@@ -64,12 +69,11 @@
         <% else %>
           <p>参加者はいません</p>
         <% end %>
-<!-- @parthicipante  @current_user_parthicipantv比べよう -->
+
         <% unless @event.user_id == current_user.id %>
           <% if @current_user_parthicipant.present? %>
             <%= link_to '参加をキャンセルする', parthicipant_management_path(id: @current_user_parthicipant.id), method: :delete, class: 'btn btn-danger' %><br>
           <% else %>
-          <%# <% binding.pry %> %>
             <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
           <% end %>
 
