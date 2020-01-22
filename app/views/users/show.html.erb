@@ -8,7 +8,8 @@
 
 
     <h1><%= @user.name %>さんのページ</h1>
-    <p><%= image_tag @user.icon.url , :size =>'100x100'%></p>
+
+    <p><%= image_tag @user.icon.url , :size =>'180x180'%></p>
     <p>メールアドレス : <%= @user.email %></p>
     <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
     <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-light" %></p>

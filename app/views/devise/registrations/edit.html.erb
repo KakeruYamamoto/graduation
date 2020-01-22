@@ -7,14 +7,13 @@
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="row justify-content-center">
-        <% if current_user.persisted? && current_user.icon? %>
-          <%= image_tag current_user.icon.to_s %>
-          <label><%= f.check_box :remove_icon %> 画像を削除</label>
-        <% else %>
           <%= image_tag(@user.icon.url,:size =>'180x180', id: :img_prev) %>
           <%= f.hidden_field :icon_cache %>
-        <% end %>
-        <%= f.file_field :icon,class: "sr-only" %>
+      </div>
+
+      <div class="file_field_btn">
+        <label><%= f.check_box :remove_icon %> 画像を削除</label>
+        <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
       </div>
       <br>
       <div class="row justify-content-center">
