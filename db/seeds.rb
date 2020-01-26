@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+#アドミンユーザ生成
 User.create!(name: "admin",
             email: "admin@gmail.com",
             password: "admin@gmail.com",
@@ -15,12 +16,11 @@ User.create!(name: "admin",
             )
 
 
+# ユーザ生成
   30.times do |n|
-
     name = Faker::Name.name
     email = Faker::Internet.email
     password = "password"
-
     User.create!(name: name,
                  email: email,
                  password: password,
@@ -30,21 +30,22 @@ User.create!(name: "admin",
   end
 
 
-
-  email = Faker::Internet.email
+#イベントをもつユーザ生成
+  email2 = Faker::Internet.email
+  email1 = Faker::Internet.email
   password = "password"
-
   test_user1 = User.create(name: "test_user1",
-              email: email,
+              email: email1,
               password: password,
               password_confirmation: password,
               )
 
   test_user2 = User.create(name: "test_user2",
-              email: email,
+              email: email2,
               password: password,
               password_confirmation: password,
               )
+
 
   num = 0
   10.times do |n|
@@ -59,6 +60,7 @@ User.create!(name: "admin",
 
     events1 = test_user1.events.build(title: title,
                         content: "test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}",
+                        e_date_start: time,
                         e_date_start: time,
                         address: address.kanji
                         )
