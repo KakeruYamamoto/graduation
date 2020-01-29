@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-      @contact = Contact.new(contact_params)
+    @contact = Contact.new(contact_params)
     respond_to do |format|
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver
@@ -28,8 +28,6 @@ class ContactsController < ApplicationController
       end
     end
   end
-
-
 
   def destroy
     @contact.destroy
@@ -48,5 +46,4 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:title, :email, :content, :event_id, :name)
   end
-
 end

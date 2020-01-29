@@ -1,6 +1,7 @@
 class LabelsController < ApplicationController
   before_action :set_label, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   def index
     @labels = Label.all
   end
@@ -17,7 +18,6 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
-
     respond_to do |format|
       if @label.save
         format.html { redirect_to @label, notice: 'ラベルを作成しました！' }

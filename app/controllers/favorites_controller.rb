@@ -6,7 +6,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id]).destroy
+    favorite = current_user.favorites.find(params[:id]).destroy
     redirect_to events_url, notice: "[#{favorite.event.title}]のイベントをあとで見るリストから解除しました"
   end
 end

@@ -25,13 +25,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Backend
   gem 'carrierwave'
-  gem 'mini_magick'
   gem 'rails_admin'
   gem 'cancancan'
   gem 'ransack'
   gem 'kaminari'
   gem 'faker'
   gem 'gimei'
+  # gem 'mini_magick'
   # gem 'seed-fu', '~> 2.3'
   # gem 'slim-rails'
   # gem 'html2slim'

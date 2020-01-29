@@ -4,7 +4,6 @@ class EventsController < ApplicationController
   before_action:destroy_message, only: [:destroy]
   before_action:event_organizer_or_admin?, only: [:edit, :update, :destroy]
 
-
   def index
     @events = Event.order(e_date_start: :desc).page(params[:page]).per(12)
   end
@@ -90,13 +89,13 @@ class EventsController < ApplicationController
   end
 
   def new_guest
-   user = User.find_or_create_by!(email: 'guest@example.com',name: "ゲスト太郎") do |user|
-     user.password = SecureRandom.urlsafe_base64
-     user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-   end
-   sign_in user
-   redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
- end
+    user = User.find_or_create_by!(email: 'guest@example.com',name: "ゲスト太郎") do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   private
 
