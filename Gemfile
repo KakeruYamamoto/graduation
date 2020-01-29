@@ -30,6 +30,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
   gem 'cancancan'
   gem 'ransack'
   gem 'kaminari'
+  gem 'faker'
+  gem 'gimei'
   # gem 'seed-fu', '~> 2.3'
   # gem 'slim-rails'
   # gem 'html2slim'
