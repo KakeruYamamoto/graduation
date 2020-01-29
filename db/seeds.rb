@@ -8,12 +8,12 @@
 
 
 #アドミンユーザ生成
-User.create!(name: "admin",
-            email: "admin@gmail.com",
-            password: "admin@gmail.com",
-            password_confirmation: "admin@gmail.com",
-            admin: true
-            )
+# User.create!(name: "admin",
+#             email: "admin@gmail.com",
+#             password: "admin@gmail.com",
+#             password_confirmation: "admin@gmail.com",
+#             admin: true
+#             )
 
 
 # ユーザ生成
