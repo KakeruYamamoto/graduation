@@ -46,17 +46,13 @@
               password_confirmation: password,
               )
 
-
+#ユーザイベント１
   num = 0
   10.times do |n|
     num += 1
     title = Faker::Game.title
     I18n.locale = 'ja'
     time = Time.new
-    # time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short)
-    # s1 = Date.parse("2019/01/01")
-    # s2 = Date.parse("2021/01/01")
-    # s = Random.rand(s1 .. s2)
     address = Gimei.address
 
     events1 = test_user1.events.build(
@@ -69,6 +65,7 @@
     events1.save
   end
 
+#ユーザイベント２
   10.times do |n|
     num += 1
     title = Faker::Game.title
@@ -90,6 +87,7 @@
     events2.save
   end
 
+#ラベル
   Label.create!(name: "屋内")
   Label.create!(name: "屋外")
   Label.create!(name: "春限定")
