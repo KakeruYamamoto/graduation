@@ -10,11 +10,24 @@
     <h1><%= @user.name %>さんのページ</h1>
 
     <p><%= image_tag @user.icon.url , :size =>'180x180'%></p>
+    <% if @user.id == current_user.id %>
     <p>メールアドレス : <%= @user.email %></p>
     <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
     <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-light" %></p>
+    <% end %>
 
-    <p>主催しているイベント一覧</p>
+    <br>
+    <p><%= link_to "#{@user.followers.count} フォロワー",users_path(user_id: @user.id) %></p>
+    <%= link_to "フォロー" %><!-- フォローを書こう -->
+      <%= render 'follow_form', user: @user %>
+
+
+    <br>
+
+    <h3>主催しているイベント一覧</h3>
+
+    <br>
+
     <table id="event_list" >
       <thead>
         <tr>
@@ -32,8 +45,8 @@
             <td><%= image_tag event.image.url, :size =>'100x100' %></td>
             <td><%= event.title.truncate(50) %></td>
             <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
-            <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" %></td>
-            <td><%= link_to '詳細', event, class: "btn btn-outline-secondary" %></td>
+            <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" if event.id ==current_user.id %></td>
+            <td><%= link_to '詳細', event, class: "btn btn-outline-secondary"  %></td>
           </tr>
         <% end %>
       </tbody>

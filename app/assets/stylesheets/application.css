@@ -35,3 +35,7 @@ li{
 ul{
     padding:0;
 }
+
+#text_inline {
+  display: inline;
+}

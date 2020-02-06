@@ -32,21 +32,28 @@
     </p>
 
     <p>
-      <strong>イベント開催日時</strong>
+      <strong>主催者：</strong>
+      <%= link_to "#{@event.user.name}", user_path(@event.user.id) %>
+    </p>
+
+    <p>
+      <strong>イベント開催日時：</strong>
       <%= @event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= @event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if @event.e_date_end.present? %>
     </p>
 
     <p>
-      <strong>開催場所</strong>
+      <strong>開催場所：</strong>
       <%= @event.address %>
     </p>
 
     <p>
-      <strong>ラベル:</strong>
-      <span class="labels"><% @event.labels.each do |label| %>
+      <strong>ラベル：</strong>
+      <span class="labels">
+        <% @event.labels.each do |label| %>
         <%= label.name %>
-        <% end %></span>
-      </p>
+        <% end %>
+      </span>
+    </p>
 
     <p>
       <strong>イベント内容</strong>
@@ -77,7 +84,7 @@
             <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
           <% end %>
 
-          <%= link_to 'お問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
+          <%= link_to '主催者にお問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
         <% end %>
       <% end %>
 

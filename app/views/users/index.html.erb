@@ -1,6 +1,26 @@
-<h2>ユーザー</h2>
-  <% @users.each do |user| %>
-    <%= user.name %>
-    <%= user.email %>
-    <%= render 'follow_form', user: user %>
-  <% end %>
+<div class="text-center">
+  <div class="container">
+    <br>
+    <h2><%= @user.name %>さんのフォロワー</h2>
+    <br>
+      <table id="event_list" >
+        <thead>
+          <tr>
+            <th>アイコン</th>
+            <th>ユーザ名</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users_followers.each do |user| %>
+            <tr>
+              <td><%= image_tag user.icon.url, :size =>'100x100' %></td>
+              <td><%= link_to "#{user.name}",user_path(user.id) %></td>
+              <td><%= render 'follow_form', user: user unless user.id == current_user.id %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  </div>
+</div>
