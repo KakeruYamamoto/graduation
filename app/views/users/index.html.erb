@@ -3,6 +3,11 @@
     <br>
     <h2><%= @user.name %>さんのフォロワー</h2>
     <br>
+    <% if @user.followers.count == 0 %>
+      <p>フォロワーはいません。</p>
+      <br>
+      <%= link_to "戻る", :back ,class: "btn btn-outline-secondary" %>
+    <% else %>
       <table id="event_list" >
         <thead>
           <tr>
@@ -22,5 +27,6 @@
           <% end %>
         </tbody>
       </table>
+      <% end %>
   </div>
 </div>
