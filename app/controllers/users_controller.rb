@@ -17,5 +17,12 @@ class UsersController < ApplicationController
     @parthicipant = current_user.parthicipant_managements.find_by(event_id: @event.id)
   end
 
+  def following
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @user_following = @user.following
+    end
+  end
+
 
 end

@@ -70,7 +70,7 @@ https://cacoo.com/diagrams/y5Szk1GeOvPKQRcD/9E3BF
 ## 画面ワイヤーフレーム
 https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
 
-# 使用予定Gem
+# 使用技術
 - ログイン機能
   - devise
   - omniauth(予定)
@@ -105,8 +105,10 @@ https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
   - kaminari-bootstrap
 - 辞書機能
   - i18n
+- メール機能
+  - SendGrid(予定)
 - マップ機能
-  GoogleMap(予定)
+  - GoogleMap(予定)
 
 # デプロイ先
 - AWS

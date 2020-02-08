@@ -5,7 +5,11 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
         }
   root to: 'events#index'
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    collection do
+      get :following
+    end
+  end
   resources :contacts, only: [:new, :create, :show, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :parthicipant_managements, only: [:create, :destroy]
