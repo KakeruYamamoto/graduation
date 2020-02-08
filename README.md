@@ -30,13 +30,13 @@
   - [ ] イベントのお気に入り機能（あとで見るリスト）
   - [ ] 参加イベントの一覧表示機能
   - [ ] お問い合わせ機能（一般ユーザがイベント主催者へ）
-    - [ ] お問い合わせ受信box機能（予定）
+    - [ ] お問い合わせ受信box機能
 
 - [ ] ユーザ機能
 
   - [ ] ユーザ作成機能
   - [ ] ユーザ詳細機能（マイページ）
-  - [ ] フォロー機能とその表示機能（予定）
+  - [ ] フォロー機能とその表示機能
 
 
 - [ ] ユーザ管理機能
@@ -73,8 +73,8 @@ https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
 # 使用技術
 - ログイン機能
   - devise
-  - omniauth(予定)
-  - omniauth-facebook（予定）
+  - omniauth(<=<=予定)
+  - omniauth-facebook（<=<=予定）
 - 管理者機能
   - rails_admin
 - 権限管理
@@ -106,9 +106,9 @@ https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
 - 辞書機能
   - i18n
 - メール機能
-  - SendGrid(予定)
+  - SendGrid(<=<=予定)
 - マップ機能
-  - GoogleMap(予定)
+  - GoogleMap(<=<=予定)
 
 # デプロイ先
 - AWS
