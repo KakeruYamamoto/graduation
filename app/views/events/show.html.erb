@@ -84,7 +84,7 @@
             <%= link_to '参加する', parthicipant_managements_path(event_id: @event.id), method: :post, class: 'btn btn-primary' %><br>
           <% end %>
 
-          <%= link_to '主催者にお問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" %><br>
+          <%= link_to '主催者にお問い合わせ', new_contact_path(event_id: @event.id), class: "btn btn-link" unless @event.user_id == current_user.id %><br>
         <% end %>
       <% end %>
 

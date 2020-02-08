@@ -2,59 +2,82 @@
   <div class="container">
     <%= form_with(model: event, local: true, url:choose_new_or_edit) do |form| %>
       <br>
+
       <div class="row justify-content-center">
         <p><%= form.label :image,class: "sr-only" %></p>
         <%= image_tag(@event.image.url, :size =>'320x480', class: "img-fluid" )if @event.image && @event.image.url %>
         <%= form.hidden_field :image_cache %>
       </div>
+
       <br>
+
       <div class="file_field_btn">
         <%= form.file_field :image%>
       </div>
+
       <br>
+
       <% if event.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(event.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
-        <ul>
-          <% event.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
+          <ul>
+            <% event.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
 
       <br>
+
       <div class="row justify-content-center">
         <%= form.label :e_date_start %>
         <%= form.datetime_select :e_date_start %>~
         <%= form.datetime_select :e_date_end %>
       </div>
+
       <br>
+
       <div class="row justify-content-center">
         <%= form.label :title,class: "sr-only" %>
         <%= form.text_field :title, autocomplete: "title" ,class: "form-control",id: "inputUser",placeholder: "イベントタイトル" %>
       </div>
+
       <br>
+
       <div class="row justify-content-center">
         <%= form.label :address,class: "sr-only" %>
         <%= form.text_field :address, autocomplete: "address" ,class: "form-control",id: "inputUser",placeholder: "開催場所の住所" %>
       </div>
+
       <br>
+
       <div class="row justify-content-center">
         <%= form.label :content,class: "sr-only" %>
         <%= form.text_area :content , autocomplete: "content" ,class: "form-control",id: "exampleFormControlTextarea1",rows: "10",placeholder: "イベント詳細を記述してください。マークダウン記法が使えます" %>
       </div>
+
       <br>
+
       <div class="row justify-content-center">
         <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
       </div>
+
       <br>
-      <% if action_name == 'edit' %>
+
+      <div class="row justify-content-center"">
+        <% if action_name == 'edit' %>
         <%= link_to 'イベントを中止にする', event_path(@event), method: :delete, class: 'btn btn-danger', data: { confirm: '本当に中止にしますか?（参加者に自動で通知が送信されます）' } %>
-      <% end %>
+        <% end %>
+      </div>
+
+      <br>
+
       <div class="row justify-content-center col-xs-3">
+        <br>
         <%= form.submit "登録する",class: "btn btn-lg btn-primary " %>
       </div>
+
       <br>
     <% end %>
   </div>

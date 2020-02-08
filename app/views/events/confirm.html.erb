@@ -30,7 +30,7 @@
         <%= label.name %>
         <% end %></span>
       </p>
-      <%= form.submit "投稿する" %>
+      <%= form.submit "投稿する",class: "btn btn-lg btn-primary " %>
     <% end %>
 
     <%= form_with(model:@event, url:new_event_path, local:true, method:"get") do |form| %>
@@ -43,8 +43,9 @@
       <% @label_ids.each do |label_id| %>
         <%= form.hidden_field :label_ids, value: label_id, multiple: true %>
       <% end %>
-
-      <%= form.submit "戻る", name: "back" %>
+      <br>
+      <%= form.submit "戻る", name: "back",class: "btn btn-outline-secondary" %>
     <% end %>
+    <br>
   </div>
 </div>

@@ -6,7 +6,6 @@
     <% if @user.followers.count == 0 %>
       <p>フォロワーはいません。</p>
       <br>
-      <%= link_to "戻る", :back ,class: "btn btn-outline-secondary" %>
     <% else %>
       <table id="event_list" >
         <thead>
@@ -28,5 +27,6 @@
         </tbody>
       </table>
       <% end %>
+      <%= link_to "戻る", :back ,class: "btn btn-outline-secondary" %>
   </div>
 </div>
