@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       get :following
     end
   end
-  resources :contacts, only: [:new, :create, :show, :destroy]
+  resources :contacts, only: [:index ,:new, :create, :show, :destroy]
   resources :favorites, only: [:create, :destroy]
   resources :parthicipant_managements, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]

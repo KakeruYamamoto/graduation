@@ -61,9 +61,7 @@
       <%= markdown(@event.content) %>
     </p>
 
-
     <% if user_signed_in? %>
-
       <% if @event.e_date_start <= Time.now %>
       <h2>このイベントは終了いたしました</h2>
       <% else %>
@@ -91,13 +89,9 @@
       <% if @event.user_id == current_user.id %>
         <p><%= link_to '編集', edit_event_path(@event),class: "btn btn-outline-danger" %></p>
       <% end %>
-
     <% end %>
 
-
-
     <p><%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %></p>
-
 
   </div>
 </div>

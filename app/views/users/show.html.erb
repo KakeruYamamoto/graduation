@@ -18,7 +18,7 @@
     <p><%= image_tag @user.icon.url , :size =>'180x180'%></p>
     <p><%= link_to "#{@user.followers.count} フォロワー",users_path(user_id: @user.id)  %> &emsp;<%= link_to "#{@user.following.count}フォロー中", following_users_path(user_id: @user.id) %>
     <% if @user.id == current_user.id %>
-      <p>メールアドレス : <%= @user.email %></p>
+      <p><%= link_to '受信BOX' , contacts_path %></p>
       <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
       <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-outline-secondary" %></p>
     <% end %>

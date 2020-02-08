@@ -19,9 +19,10 @@
 
     <p>
       <strong>お問い合わせ内容:</strong>
+      <br>
       <%= @contact.content %>
     </p>
-
-    <%= link_to '戻る', event_path(@contact.event.id) %>
+    <br>
+    <%= link_to '戻る', event_path(@contact.event.id),class: "btn btn-outline-secondary" %>
   </div>
 </div>

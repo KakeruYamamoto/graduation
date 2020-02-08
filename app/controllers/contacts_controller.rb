@@ -2,7 +2,9 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :destroy]
 
   def index
-    @contacts = current_user.event.contacts.all
+    @events = current_user.events
+    event_array = @events.map {|event| event.contacts unless nil? }
+    @contacts = event_array.flatten #flatten
   end
 
   def show
