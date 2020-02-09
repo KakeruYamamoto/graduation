@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :update]
 
   def index
     @events = current_user.events

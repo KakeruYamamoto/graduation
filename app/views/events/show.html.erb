@@ -26,8 +26,10 @@
       <%= @event.title %>
     </h1>
 
-    <% if @event.user_id == current_user.id %>
-      <p>あなたが主催者です。</p>
+    <% if user_signed_in? %>
+      <% if @event.user_id == current_user.id %>
+        <p>あなたが主催者です。</p>
+      <% end %>
     <% end %>
 
     <p class="col-12">
