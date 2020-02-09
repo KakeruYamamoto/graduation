@@ -26,6 +26,9 @@
       <%= @event.title %>
     </h1>
 
+    <% if @event.user_id == current_user.id %>
+      <p>あなたが主催者です。</p>
+    <% end %>
 
     <p class="col-12">
       <%= image_tag @event.image.url ,class: "img-fluid" %>
