@@ -59,17 +59,19 @@
 
 
 ## カタログ設計
-詳細は[こちら](https://docs.google.com/spreadsheets/d/1jzKGT_3a9xmagpc9RAHunR8BEhg3C-Pu0EhWB_1oJiw/edit?usp=sharing)をご覧ください
+詳細は[こちら](https://docs.google.com/spreadsheets/d/1jzKGT_3a9xmagpc9RAHunR8BEhg3C-Pu0EhWB_1oJiw/edit?usp=sharing)をご覧ください。
 
 ## テーブル定義
-https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing
+詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing)をご覧ください。
+
 # ER図
-https://cacoo.com/diagrams/mr2Oc0nDjwrl8qKF/D0F91
+詳細は[こちら](https://cacoo.com/diagrams/mr2Oc0nDjwrl8qKF/D0F91)をご覧ください。
 
 ## 画面遷移図
-https://cacoo.com/diagrams/y5Szk1GeOvPKQRcD/9E3BF
+詳細は[こちら](https://cacoo.com/diagrams/y5Szk1GeOvPKQRcD/9E3BF)をご覧ください。
+
 ## 画面ワイヤーフレーム
-https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
+詳細は[こちら](https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3)をご覧ください。
 
 # 使用技術
 - ログイン機能
@@ -104,8 +106,8 @@ https://cacoo.com/diagrams/51O1AnZuSgtrGNYT/B6EB3
 - デザイン
   - bootstrap
   - kaminari-bootstrap
-- 辞書機能
-  - i18n
+<!-- - 辞書機能
+  - i18n -->
 - メール機能
   - SendGrid(<=<=予定)
 - マップ機能
