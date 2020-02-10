@@ -64,7 +64,7 @@
 ## テーブル定義
 詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing)をご覧ください。
 
-# ER図
+## ER図
 詳細は[こちら](https://cacoo.com/diagrams/mr2Oc0nDjwrl8qKF/D0F91)をご覧ください。
 
 ## 画面遷移図
@@ -116,3 +116,14 @@
 # デプロイ先
 - AWS
 - Heroku
+
+## How to Start
+```
+  1.  git clone https://github.com/KakeruYamamoto/graduation.git
+  2.  rails db:create
+  3.  rails db:migrate
+  4.  rails db:seed
+  5.  yarn install
+  6.  bundle exec rspec    
+  7.  rails s  
+```

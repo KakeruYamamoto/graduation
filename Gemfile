@@ -81,6 +81,7 @@ group :development do
   gem 'letter_opener_web'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem "rails-erd"
 end
 
 group :test do
