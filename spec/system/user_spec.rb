@@ -43,12 +43,13 @@ RSpec.describe "ユーザ管理機能", type: :system do
 
   scenario "ユーザ更新テスト" do
     visit edit_user_registration_path(@user1)
+    fill_in "user[name]", with: "ユーザ更新テスト太郎"
     fill_in "user[email]", with: 'test_user1_chage_chage_chage@gmail.com'
     fill_in "user[password]", with: 'test_user1@gmail.comtest_user1@gmail.com_chage_chage_chage'
     fill_in "user[password_confirmation]", with: 'test_user1@gmail.comtest_user1@gmail.com_chage_chage_chage'
     fill_in "user[current_password]", with: @user1.password
     click_on 'Update'
-    expect(page).to have_text "test_user1_chage_chage_chage@gmail.com"
+    expect(page).to have_text "ユーザ更新テスト太郎"
   end
 
 end

@@ -1,21 +1,36 @@
 <div class="text-center">
   <div class="container">
+
     <br>
+
     <h2>プロフィール編集</h2>
+
     <br>
+
     <%= form_for(resource, as: resource_name,class:"form-signin", url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="row justify-content-center">
-          <%= image_tag(@user.icon.url,:size =>'180x180', id: :img_prev) %>
-          <%= f.hidden_field :icon_cache %>
+        <%= image_tag(@user.icon.url,:size =>'180x180', id: :img_prev) %>
+        <%= f.hidden_field :icon_cache %>
       </div>
+
+
 
       <div class="file_field_btn">
         <label><%= f.check_box :remove_icon %> 画像を削除</label>
         <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
       </div>
+
       <br>
+
+      <div class="row justify-content-center">
+        <%= f.label :name,class: "sr-only" %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" ,class: "form-control",id: "inputUser",placeholder: "お名前" %>
+      </div>
+      
+      <br>
+
       <div class="row justify-content-center">
         <%= f.label :email,class: "sr-only" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "メールアドレス" %>

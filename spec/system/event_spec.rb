@@ -30,13 +30,13 @@ RSpec.describe "イベント管理機能", type: :system do
     fill_in "event[title]", with: 'eventsample'
     fill_in "event[address]", with: '東京'
 
-    select "2020", from: "event[e_date_start(1i)]"
+    select "2021", from: "event[e_date_start(1i)]"
     select "1月", from: "event[e_date_start(2i)]"
     select "1", from: "event[e_date_start(3i)]"
     select "12", from: "event[e_date_start(4i)]"
     select '00', from: 'event[e_date_start(5i)]'
 
-    select "2020", from: "event[e_date_end(1i)]"
+    select "2021", from: "event[e_date_end(1i)]"
     select "1月", from: "event[e_date_end(2i)]"
     select "1", from: "event[e_date_end(3i)]"
     select "13", from: "event[e_date_end(4i)]"
@@ -58,13 +58,13 @@ RSpec.describe "イベント管理機能", type: :system do
     click_on '編集'
     fill_in "event[title]", with: 'eventsample22'
     fill_in "event[address]", with: '東京'
-    select "2020", from: "event[e_date_start(1i)]"
+    select "2021", from: "event[e_date_start(1i)]"
     select "1月", from: "event[e_date_start(2i)]"
     select "1", from: "event[e_date_start(3i)]"
     select "12", from: "event[e_date_start(4i)]"
     select '00', from: 'event[e_date_start(5i)]'
 
-    select "2020", from: "event[e_date_end(1i)]"
+    select "2021", from: "event[e_date_end(1i)]"
     select "1月", from: "event[e_date_end(2i)]"
     select "1", from: "event[e_date_end(3i)]"
     select "14", from: "event[e_date_end(4i)]"
