@@ -3,5 +3,6 @@ FactoryBot.define do
     title { "MyString" }
     email { "MyString@gmail.com" }
     content { "MyText" }
+    event_id { 1 }
   end
 end
