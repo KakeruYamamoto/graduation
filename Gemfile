@@ -47,6 +47,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
   gem 'unicorn'
   gem 'mini_racer', platforms: :ruby
 
+#ログイン
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'better_errors'
