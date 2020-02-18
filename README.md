@@ -2,7 +2,7 @@
 
 
 # EVENT KEEPER
-### AWS:http://18.182.182.144/
+### AWS:http://18.182.182.144
 ### Heroku:https://mighty-harbor-57988.herokuapp.com/
 ##### ＊ほぼAWSしか更新していません。
 
