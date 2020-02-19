@@ -31,10 +31,15 @@
     <div class="row justify-content-center col-xs-3" >
       <%= f.submit "サインイン" ,class: "btn btn-lg btn-primary "%>
     </div>
+
     <br>
     <% end %>
     <p><%= link_to 'ゲストログイン（閲覧用）', guest_sign_in_events_path, method: :post ,class: "btn btn-outline-success"%></p>
     <%= render "devise/shared/links" %>
+
+<%= link_to 'Googleでサインアップしてね', user_google_omniauth_authorize_path %>
+
+
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
