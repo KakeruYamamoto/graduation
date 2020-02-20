@@ -82,8 +82,8 @@
 # 使用技術
 - ログイン機能
   - devise
-  - omniauth(<=<=予定)
-  - omniauth-google-oauth2（<=<=予定）
+  - omniauth
+  - omniauth-google-oauth2
 - 管理者機能
   - rails_admin
 - 権限管理
@@ -113,6 +113,7 @@
 - デザイン
   - bootstrap
   - kaminari-bootstrap
+  <!-- - Font Awesome -->
 <!-- - 辞書機能
   - i18n -->
 - メール機能

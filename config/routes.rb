@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-        registrations: 'users/registrations'
+        registrations: 'users/registrations',
+        omniauth_callbacks: "users/omniauth_callbacks"
         }
   root to: 'events#index'
   resources :users, only: [:index, :show] do
