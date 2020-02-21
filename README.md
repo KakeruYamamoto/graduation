@@ -3,8 +3,8 @@
 
 # EVENT KEEPER
 ### AWS:http://18.182.182.144
-### Heroku:https://mighty-harbor-57988.herokuapp.com/
-##### ＊ほぼAWSしか更新していません。
+### Heroku:https://mighty-harbor-57988.herokuapp.com
+##### ＊GoogleログインはHerokuのみ（AWSはドメイン未取得のため）
 
 
 ## 概要
@@ -117,7 +117,7 @@
 <!-- - 辞書機能
   - i18n -->
 - メール機能
-  - SendGrid(<=<=予定)
+  - SendGrid
   - letter_opener_web(ローカル環境)
 - マップ機能
   - GoogleMap(<=<=予定)
