@@ -2,9 +2,9 @@
 
 
 # EVENT KEEPER
-### AWS:http://18.182.182.144
 ### Heroku:https://mighty-harbor-57988.herokuapp.com
-##### ＊GoogleログインはHerokuのみ（AWSはドメイン未取得のため）
+### AWS:http://18.182.182.144 (googleログイン、sendgrid未実装)
+##### ＊Herokuが最新です。
 
 
 ## 概要
@@ -83,7 +83,7 @@
 - ログイン機能
   - devise
   - omniauth
-  - omniauth-google-oauth2
+  - omniauth-google-oauth2（Herokuのみ）
 - 管理者機能
   - rails_admin
 - 権限管理
@@ -117,7 +117,7 @@
 <!-- - 辞書機能
   - i18n -->
 - メール機能
-  - SendGrid
+  - SendGrid(Herokuのみ)
   - letter_opener_web(ローカル環境)
 - マップ機能
   - GoogleMap(<=<=予定)
