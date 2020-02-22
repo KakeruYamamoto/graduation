@@ -127,8 +127,9 @@
   1.  git clone https://github.com/KakeruYamamoto/graduation.git
   2.  rails db:create
   3.  rails db:migrate
-  4.  rails db:seed
-  5.  yarn install
-  6.  bundle exec rspec    
-  7.  rails s  
+  4.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
+  5.  rails db:seed
+  6.  yarn install
+  7.  bundle exec rspec    
+  8.  rails s  
 ```
