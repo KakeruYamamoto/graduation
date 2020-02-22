@@ -9,6 +9,7 @@
     <br>
     <h1>確認画面</h1>
 
+    <p class="alert alert-danger">まだ登録が完了していません！</p>
     <%= form_with(model: @event, url: events_path, local: true) do |form| %>
       <%= form.hidden_field :image_cache %>
       <%= form.hidden_field :title %>
@@ -30,7 +31,7 @@
         <%= label.name %>
         <% end %></span>
       </p>
-      <%= form.submit "投稿する",class: "btn btn-lg btn-primary " %>
+      <%= form.submit "投稿する",class: "btn btn-lg btn-primary ", data: { confirm: 'この内容でよろしいですか？' } %>
     <% end %>
 
     <%= form_with(model:@event, url:new_event_path, local:true, method:"get") do |form| %>
