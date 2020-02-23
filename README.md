@@ -21,16 +21,15 @@
 ## 機能一覧
 - [ ] イベント機能
   - [ ] イベントCRUD機能（一覧、作成、詳細、更新、削除）
-  - [ ] イベント参加者の表示
+    - [ ] 主催者がイベントをキャンセル（削除）する（主催者のみの操作）
+  - [ ] イベント参加者の表示機能
   - [ ] 確認画面機能（新規投稿のみ）
-  - [ ] 主催イベントの一覧表示（各プロフィールにて）
+  - [ ] 主催イベントの一覧表示（プロフィールにて）
   - [ ] イベント終了表示機能（期限になるとコンテンツ部分に表示）
 
   - [ ] イベント参加機能（一覧、追加、削除）
     - [ ] 参加イベントの一覧表示機能
     - [ ] 参加イベントの編集機能（追加、削除）
-    - [ ] イベント中止機能（主催するイベントのキャンセル）
-      - [ ] 主催者がイベントをキャンセルする（主催者のみの操作）
 
   - [ ] イベントの’あとで見る’機能（一覧、追加、削除）
     - [ ] あとで見る機能の一覧表示機能
@@ -50,7 +49,7 @@
   - [ ] ユーザ削除機能
     - [ ] ユーザの編集と削除は作成したユーザと管理者のみ実行可能
 
-- [ ] メール通知機能(現在、ローカルのみ作動)
+- [ ] メール通知機能(Herokuとローカルのみ)
   - [ ] イベント主催者へのお問い合わせ通知メール（主催者へ）
   - [ ] イベントの詳細変更の通知メール（参加者へ）
   - [ ] イベントの中止の通知メール（参加者へ）
@@ -122,14 +121,36 @@
 - マップ機能
   - GoogleMap(<=<=予定)
 
+
+## How to Start（Beginner）
+```
+ローカルの環境をリセットしてみよう
+
+1.  git clone https://github.com/KakeruYamamoto/graduation.git
+2. $ cd graduation (作成後、対象のディレクトリから抜けてしまうので、そのディレクトリ移動)
+
+7.  yarn install (ヤーンのインストール)かも
+$ yarn install --check-files
+3.  rails db:create (データベースの生成)
+4.  rails db:migrate （マイグレーションファイルの実行）
+5.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
+6.  rails db:seed (シードデータの生成)
+7.  yarn install (ヤーンのインストール)
+8.  bundle exec rspec （テストの実行。＊開発の兼ね合いで、修正が間に合っていない場合がございますので、ここでエラーが出ても、サーバは立ち上げられます。）
+9.  rails s  
+```
+
+
+
 ## How to Start
 ```
-  1.  git clone https://github.com/KakeruYamamoto/graduation.git
-  2.  rails db:create
-  3.  rails db:migrate
-  4.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
-  5.  rails db:seed
-  6.  yarn install
-  7.  bundle exec rspec    
-  8.  rails s  
+1.  git clone https://github.com/KakeruYamamoto/graduation.git
+2.  cd EventKeeper (ディレクトリ移動)
+3.  rails db:create (データベースの生成)
+4.  rails db:migrate （マイグレーションファイルの実行）
+5.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
+6.  rails db:seed (シードデータの生成)
+7.  yarn install (ヤーンのインストール)
+8.  bundle exec rspec （テストの実行。＊開発の兼ね合いで、修正が間に合っていない場合がございますので、ここでエラーが出ても、サーバは立ち上げられます。）
+9.  rails s  
 ```
