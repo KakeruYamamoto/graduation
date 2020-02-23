@@ -122,35 +122,18 @@
   - GoogleMap(<=<=予定)
 
 
-## How to Start（Beginner）
-```
-ローカルの環境をリセットしてみよう
-
-1.  git clone https://github.com/KakeruYamamoto/graduation.git
-2. $ cd graduation (作成後、対象のディレクトリから抜けてしまうので、そのディレクトリ移動)
-
-7.  yarn install (ヤーンのインストール)かも
-$ yarn install --check-files
-3.  rails db:create (データベースの生成)
-4.  rails db:migrate （マイグレーションファイルの実行）
-5.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
-6.  rails db:seed (シードデータの生成)
-7.  yarn install (ヤーンのインストール)
-8.  bundle exec rspec （テストの実行。＊開発の兼ね合いで、修正が間に合っていない場合がございますので、ここでエラーが出ても、サーバは立ち上げられます。）
-9.  rails s  
-```
-
-
-
 ## How to Start
+
 ```
-1.  git clone https://github.com/KakeruYamamoto/graduation.git
-2.  cd EventKeeper (ディレクトリ移動)
-3.  rails db:create (データベースの生成)
-4.  rails db:migrate （マイグレーションファイルの実行）
-5.  config/initializers/locale.rb内の"I18n"の二行をコメントアウト（seed生成後戻す）
-6.  rails db:seed (シードデータの生成)
-7.  yarn install (ヤーンのインストール)
-8.  bundle exec rspec （テストの実行。＊開発の兼ね合いで、修正が間に合っていない場合がございますので、ここでエラーが出ても、サーバは立ち上げられます。）
-9.  rails s  
+1. $ git clone https://github.com/KakeruYamamoto/graduation.git (クローン生成)
+2. $ cd graduation (作成後、対象のディレクトリから抜けてしまうので、そのディレクトリ移動)
+3. $ bundle install
+4. $ yarn install
+5. $ rails db:create (データベースの生成)
+6. $ rails db:migrate （マイグレーションファイルの実行）
+7.  #config/initializers/locale.rb内の"I18n"の二行をコメントアウト（8.のコマンド終了後、戻す）
+8. $ rails db:seed (シードデータの生成)
+9. $ bundle exec rspec （テストの実行。＊開発の兼ね合いで、修正が間に合っていない場合がございますので、ここでエラーが出ても、サーバは立ち上げられます。）
+10.  rails s  
+#通知メール機能は’http://localhost:3000/letter_opener’で確認できます。
 ```
