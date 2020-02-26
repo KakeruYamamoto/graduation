@@ -70,7 +70,7 @@
 詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing)をご覧ください。
 
 ## ER図
-詳細は[こちら](https://raw.githubusercontent.com/KakeruYamamoto/graduation/master/erd.png)をご覧ください。
+<img src="https://raw.githubusercontent.com/KakeruYamamoto/graduation/master/erd.png" width="650px">
 
 ## 画面遷移図
 詳細は[こちら](https://cacoo.com/diagrams/y5Szk1GeOvPKQRcD/9E3BF)をご覧ください。
