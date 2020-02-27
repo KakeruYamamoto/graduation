@@ -83,6 +83,33 @@ User.create!(name: "admin",
     events2.save
   end
 
+#テストユーザ３
+
+  test_user3 = User.create(name: "田中太郎",
+              email: 'tanaka@mail.com',
+              password: 'tanaka@mail.com',
+              password_confirmation: 'tanaka@mail.com',
+              )
+
+#ユーザイベント3
+  10.times do |n|
+    num += 1
+    title = Faker::Game.title
+    address = Gimei.address
+    time = Time.new
+    @date_time = time + (60*60*24*30)
+
+    events3 = test_user3.events.build(
+                        title: title,
+                        content: "test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}test#{num}",
+                        e_date_start: @date_time,
+                        e_date_end: @date_time,
+                        address: address.kanji
+                        )
+    events3.save
+  end
+
+
 #ラベル
   Label.create!(name: "屋内")
   Label.create!(name: "屋外")

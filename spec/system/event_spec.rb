@@ -73,6 +73,7 @@ RSpec.describe "イベント管理機能", type: :system do
 
     fill_in "event[content]", with: 'eventtesteventtesteventtest22'
     click_on '登録する'
+    page.driver.browser.switch_to.alert.accept
     expect(page).to have_content 'eventtesteventtesteventtest22'
     expect(page).to have_content 'eventsample22'
   end

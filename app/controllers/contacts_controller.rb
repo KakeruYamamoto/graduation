@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   def index
     @events = current_user.events
     event_array = @events.map {|event| event.contacts unless nil? }
-    @contacts = event_array.flatten #flatten
+    @contacts = event_array.flatten 
   end
 
   def show
