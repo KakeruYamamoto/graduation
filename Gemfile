@@ -9,7 +9,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Middleware
   gem 'pg', '>= 0.18', '< 2.0'
-  gem 'puma', '~> 3.11'
+  gem 'puma', '~> 3.12'
 
 # Frontend
   gem 'sass-rails', '~> 5.0'
