@@ -22,8 +22,8 @@
       <% @label_ids.each do |label_id| %>
         <%= form.hidden_field :label_ids, value: label_id, multiple: true %>
       <% end %>
-      <p>開催日時<%= @event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= @event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if @event.e_date_end.present? %>まで</p>
-      <p>開催場所：<%= @event.address %></p>
+      <p><strong>開催日時：</strong><%= @event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= @event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if @event.e_date_end.present? %>まで</p>
+      <p><strong>開催場所：</strong><%= @event.address %></p>
       <p><%= markdown(@event.content) %></p>
       <p>
         <strong>ラベル:</strong>
