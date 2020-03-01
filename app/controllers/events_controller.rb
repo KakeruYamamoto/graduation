@@ -35,13 +35,13 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'イベントを作成しました！' }
-        format.json { render :show, status: :created, location: @event }
+    if params[:back]
+        render :new
       else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
+      if @event.save
+        redirect_to events_path, notice:"イベントを作成しました！" #noticeはHTMLに記述しないと表示されない。
+      else
+        render :new
       end
     end
   end
@@ -53,20 +53,16 @@ class EventsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        if @event.parthicipante_users.present?
-          @event_info = @event
-          @event.parthicipante_users.each do|event_parthicipante_user|
-            EventChangeMailer.event_change(event_parthicipante_user.email,@event_info).deliver
-          end
+    if @event.update(event_params)
+      if @event.parthicipante_users.present?
+        @event_info = @event
+        @event.parthicipante_users.each do|event_parthicipante_user|
+          EventChangeMailer.event_change(event_parthicipante_user.email,@event_info).deliver
         end
-        format.html { redirect_to @event, notice: 'イベントを更新しました' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
+      redirect_to events_path, notice: "イベントを更新しました！"
+    else
+      render :edit
     end
   end
 
@@ -81,10 +77,7 @@ class EventsController < ApplicationController
   def destroy
     if current_user.admin? || current_user.id == @event.user.id
       @event.destroy
-      respond_to do |format|
-        format.html { redirect_to events_url, notice: 'イベントを削除しました！' }
-        format.json { head :no_content }
-      end
+      redirect_to events_path, notice:"イベントを削除しました！"
     end
   end
 

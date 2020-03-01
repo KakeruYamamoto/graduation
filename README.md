@@ -89,7 +89,6 @@
   - cancancan
 - 画像編集機能
   - carrierwave
-  <!-- - mini_magick -->
 - 検索機能
   - ransack
 - ページネーション
@@ -112,15 +111,9 @@
 - デザイン
   - bootstrap
   - kaminari-bootstrap
-  <!-- - Font Awesome -->
-<!-- - 辞書機能
-  - i18n -->
 - メール機能
   - SendGrid(Herokuのみ)
   - letter_opener_web(ローカル環境)
-- マップ機能
-  - GoogleMap(<=<=予定)
-
 
 ## How to Start
 

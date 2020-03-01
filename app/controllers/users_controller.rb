@@ -23,6 +23,4 @@ class UsersController < ApplicationController
       @user_following = @user.following
     end
   end
-
-
 end

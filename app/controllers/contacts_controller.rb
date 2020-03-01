@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   def index
     @events = current_user.events
     event_array = @events.map {|event| event.contacts unless nil? }
-    @contacts = event_array.flatten 
+    @contacts = event_array.flatten
   end
 
   def show
@@ -20,24 +20,17 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    respond_to do |format|
-      if @contact.save
-        ContactMailer.contact_mail(@contact).deliver
-        format.html { redirect_to @contact, notice: 'お問い合わせを送信しました！' }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+    if @contact.save
+      ContactMailer.contact_mail(@contact).deliver
+      redirect_to @contact, notice: 'お問い合わせを送信しました！'
+    else
+      render :new
     end
   end
 
   def destroy
     @contact.destroy
-    respond_to do |format|
-      format.html { redirect_to contacts_url, notice: 'お問い合わせを削除しました！' }
-      format.json { head :no_content }
-    end
+    redirect_to contacts_url, notice: 'お問い合わせを削除しました！'
   end
 
   private
