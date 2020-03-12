@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div class="container">
+  <div class="event_show container">
     <% require 'date' %>
     <% date = Date.today %>
     <% weeks = ["月","火","水","木","金","土","日"] %>
@@ -60,10 +60,10 @@
 
     <p>
       <strong>イベント内容</strong>
+      <hr>
       <br>
       <%= markdown(@event.content) %>
     </p>
-
     <% if user_signed_in? %>
       <% if @event.e_date_start <= Time.now %>
       <h2>このイベントは終了いたしました</h2>
