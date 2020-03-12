@@ -44,14 +44,16 @@
       <%= @event.address %>
     </p>
 
-    <p>
-      <strong>ラベル：</strong>
-      <span class="labels">
-        <% @event.labels.each do |label| %>
-        <%= label.name %>
-        <% end %>
-      </span>
-    </p>
+    <% if @event.labels.present? %>
+      <p>
+        <strong>ラベル：</strong>
+        <span class="labels">
+          <% @event.labels.each do |label| %>
+          <%= label.name %>
+          <% end %>
+        </span>
+      </p>
+    <% end %>
     <hr>
     <p>
       <%= markdown(@event.content) %>
@@ -59,6 +61,7 @@
     <% if user_signed_in? %>
       <% if @event.e_date_start <= Time.now %>
       <h2>このイベントは終了いたしました</h2>
+      <br>
       <% else %>
       <br>
       <h4>参加者</h4>

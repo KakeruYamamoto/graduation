@@ -1,41 +1,28 @@
 <div class="text-center">
-  <div class="container">
-
+  <div class="search_index container">
     <br>
-
     <h2>プロフィール編集</h2>
-
-    <br>
-
+    <hr>
     <%= form_for(resource, as: resource_name,class:"form-signin", url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-
       <div class="row justify-content-center">
-        <%= image_tag(@user.icon.url,:size =>'180x180', id: :img_prev) %>
+        <%= image_tag(@user.icon.url,:size =>'180x180', id: :img_prev, class: "image_icon") %>
         <%= f.hidden_field :icon_cache %>
       </div>
-
-
-
       <div class="file_field_btn">
         <label><%= f.check_box :remove_icon %> 画像を削除</label>
         <%= f.file_field :icon, accept: 'image/jpeg,image/gif,image/png' %>
       </div>
-
       <br>
-
       <div class="row justify-content-center">
         <%= f.label :name,class: "sr-only" %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name" ,class: "form-control",id: "inputUser",placeholder: "お名前" %>
       </div>
-      
       <br>
-
       <div class="row justify-content-center">
         <%= f.label :email,class: "sr-only" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "メールアドレス" %>
       </div>
-
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>現在の確認待ち： <%= resource.unconfirmed_email %></div>
       <% end %>
@@ -58,14 +45,18 @@
       </div>
       <br>
       <div class="row justify-content-center col-xs-3">
-        <%= f.submit "Update" %>
+        <%= f.submit "更新",class: "btn btn-lg btn-primary" %>
       </div>
     <% end %>
+    <% unless current_user.id == User.find(41).id  %>
+      <br>
+      <h3>アカウント削除</h3>
+      <br>
+      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "btn btn-outline-danger" %>
+      <br>
+    <% end %>
     <br>
-    <h3>アカウント削除</h3>
+    <%= link_to "戻る", :back,class: "btn btn-outline-secondary" %>
     <br>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete,class: "btn btn-outline-danger" %>
-    <br>
-    <%= link_to "戻る", :back %>
   </div>
 </div>
