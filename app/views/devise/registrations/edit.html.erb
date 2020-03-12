@@ -48,7 +48,7 @@
         <%= f.submit "更新",class: "btn btn-lg btn-primary" %>
       </div>
     <% end %>
-    <% unless current_user.id == User.find(41).id  %>
+    <% unless current_user.name == "ゲスト太郎" && current_user.email == "guest@example.com" %>
       <br>
       <h3>アカウント削除</h3>
       <br>
