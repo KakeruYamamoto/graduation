@@ -25,7 +25,7 @@
           <tbody>
             <% @events.each do |event| %>
             <tr class="search_reslut" onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link">
-              <td><%= image_tag event.image.url, :size =>'100x100' %></td>
+              <td><%= image_tag event.image.url, :size =>'100x100', class: "image_icon" %></td>
               <td><%= event.title %></td>
               <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
               <td><%= event.address %></td>
