@@ -1,8 +1,9 @@
 <div class="text-center">
-  <div class="container">
+  <div class="event_show container">
     <br>
     <p id="notice"><%= notice %></p>
-    <br>
+    <h1>受信メール</h1>
+    <hr>
     <p>
       <strong>タイトル:</strong>
       <%= @contact.title %>
@@ -11,18 +12,15 @@
       <strong>お名前:</strong>
       <%= @contact.name %>
     </p>
-
     <p>
       <strong>返信用メールアドレス:</strong>
       <%= @contact.email %>
     </p>
-
+    <hr>
     <p>
-      <strong>お問い合わせ内容:</strong>
-      <br>
       <%= @contact.content %>
     </p>
     <br>
-    <%= link_to '戻る', event_path(@contact.event.id),class: "btn btn-outline-secondary" %>
+    <%= link_to '戻る', :back,class: "btn btn-outline-secondary" %>
   </div>
 </div>

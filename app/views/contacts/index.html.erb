@@ -1,7 +1,8 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
     <br>
     <h2><%= current_user.name %>さんの受信BOX</h2>
+    <hr>
     <br>
     <% unless @contacts.present?  %>
       <p>メールはありません。</p>
@@ -16,21 +17,19 @@
             <th>内容</th>
           </tr>
         </thead>
-
         <tbody>
           <% @contacts.each do |contact| %>
-            <tr>
+            <tr class="search_reslut" onclick='window.location="<%= '/contacts/' + contact.id.to_s %>"' role="link">
               <td><%= contact.name %></td>
               <td><%= contact.title %></td>
               <td><%= contact.email %></td>
               <td><%= contact.content.truncate(15) %></td>
-              <td><%= link_to '詳細', contact, class: "btn btn-outline-secondary" %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
       <% end %>
       <br>
-      <%= link_to "戻る", :back ,class: "btn btn-outline-secondary" %>
+      <%= link_to "戻る", user_path(current_user.id) ,class: "btn btn-outline-secondary" %>
   </div>
 </div>

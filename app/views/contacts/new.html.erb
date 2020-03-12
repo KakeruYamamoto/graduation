@@ -1,13 +1,12 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
     <br>
     <h1>お問い合わせ</h1>
-
+    <hr>
     <%= form_with(model: @contact, local: true) do |form| %>
     <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@contact.errors.count, "件") %> のエラーにより、このイベントを保存できませんでした</h2>
-
       <ul>
         <% @contact.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,48 +14,36 @@
       </ul>
     </div>
     <% end %>
-
     <br>
-
     <div class="row justify-content-center">
       <p><%= form.label :title %></p><br>
       <%= form.text_field :title, autocomplete: "title", autocomplete: "title" ,class: "form-control",id: "inputUser",placeholder: "お問い合わせの件名" %>
     </div>
-
     <br>
-
     <div class="row justify-content-center">
       <%= form.label :email ,"返信用のメールアドレス" %>
       <%= form.text_field :email ,value: current_user.email, autocomplete: "email", autocomplete: "email" ,class: "form-control",id: "inputUser",placeholder: "メールアドレス" %>
     </div>
-
     <br>
-
     <div class="row justify-content-center">
       <%= form.label :name %>
       <%= form.text_field :name ,value: current_user.name, autocomplete: "お名前" ,class: "form-control",id: "inputUser",placeholder: "お名前" %>様
     </div>
-
     <br>
-
     <div class="row justify-content-center">
       <%= form.label :content,class: "sr-only" %>
       <%= form.text_area :content , autocomplete: "content", autocomplete: "content" ,class: "form-control",id: "exampleFormControlTextarea1",rows: "5",placeholder: "お問い合わせ内容をご記入ください" %>
     </div>
-
     <br>
-
     <div class="row justify-content-center">
       <%= form.hidden_field :event_id ,value: @contact.event_id %>
     </div>
-
     <br>
-
     <div class="row justify-content-center col-xs-3">
-      <%= form.submit %>
+      <%= form.submit class: "btn btn-lg btn-primary" %>
     </div>
+    <br>
     <% end %>
-
-    <%= link_to '戻る', event_path(@contact.event_id) %>
+    <%= link_to '戻る', :back,class: "btn btn-outline-secondary" %>
   </div>
 </div>
