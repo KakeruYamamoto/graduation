@@ -1,5 +1,5 @@
 # README
-
+＊2020/03/12 再修正済み（主にレイアウト）
 
 # EVENT KEEPER
 ### Heroku:https://mighty-harbor-57988.herokuapp.com
