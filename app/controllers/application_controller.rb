@@ -26,5 +26,4 @@ class ApplicationController < ActionController::Base
       @events = @q.result(distinct: true).order(e_date_start: :desc).page(params[:page]).per(12)
     end
   end
-
 end

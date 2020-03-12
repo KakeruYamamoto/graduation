@@ -69,7 +69,6 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'webdrivers'
   gem 'selenium-webdriver'
-
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
