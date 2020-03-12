@@ -111,17 +111,23 @@ label {
   }
 
   &:hover {
-    background-color: #F8F9FA;
-    opacity: 0.9;
+    background-color: #F5F5F5;
+    opacity: 0.7;
   }
 }
 
 .search_index {
   background-color: white;
-  padding: 10px;
+  padding: 20px;
 }
 
 p .image_icon {
+  border-style: solid;
+  border-width: thin;
+  border-color: #9C9C9D;
+}
+
+td .image_icon {
   border-style: solid;
   border-width: thin;
   border-color: #9C9C9D;

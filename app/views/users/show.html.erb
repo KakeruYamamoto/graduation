@@ -48,7 +48,7 @@
         <tbody>
           <% @users.each do |event| %>
             <tr class="search_reslut">
-              <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= image_tag event.image.url, :size =>'100x100' %></td>
+              <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= image_tag event.image.url, :size =>'100x100',class: "image_icon" %></td>
               <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= event.title.truncate(50) %></td>
               <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
               <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" if event.user.id ==current_user.id %></td>
@@ -57,7 +57,8 @@
         </tbody>
       </table>
     <% end %>
-  <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
+    <br>
+    <%= link_to '戻る', :back,class: "btn btn-outline-secondary" %>
   </div>
   <br>
 </div>

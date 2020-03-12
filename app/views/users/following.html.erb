@@ -1,7 +1,8 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
     <br>
     <h2><%= @user.name %>さんがフォロー中のユーザー</h2>
+    <hr>
     <br>
     <% if @user.following.count == 0 %>
       <p>フォロー中のユーザーはいません。</p>
@@ -15,18 +16,18 @@
             <th colspan="2"></th>
           </tr>
         </thead>
-
         <tbody>
           <% @user_following.each do |user| %>
-            <tr>
-              <td><%= image_tag user.icon.url, :size =>'100x100' %></td>
-              <td><%= link_to "#{user.name}",user_path(user.id) %></td>
+            <tr class="search_reslut">
+              <td onclick='window.location="<%= '/users/' + user.id.to_s %>"' role="link"><%= image_tag user.icon.url, :size =>'100x100',class: "image_icon" %></td>
+              <td onclick='window.location="<%= '/users/' + user.id.to_s %>"' role="link"><%= link_to "#{user.name}",user_path(user.id) %></td>
               <td><%= render 'follow_form', user: user unless user.id == current_user.id %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
       <% end %>
+      <br>
       <%= link_to "戻る", :back ,class: "btn btn-outline-secondary" %>
   </div>
 </div>
