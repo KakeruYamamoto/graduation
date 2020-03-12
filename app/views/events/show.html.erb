@@ -1,11 +1,9 @@
 <div class="text-center">
   <div class="container">
-
     <% require 'date' %>
     <% date = Date.today %>
     <% weeks = ["月","火","水","木","金","土","日"] %>
     <% index = date.strftime("%u").to_i %>
-
     <p id="notice"><%= notice %></p>
     <% if user_signed_in? %>
       <% unless @event.user_id == current_user.id %>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_search
+  before_action :set_search  
   # 例外処理
   rescue_from CanCan::AccessDenied do |exception|
      redirect_to main_app.root_path, alert: exception.message
@@ -26,4 +26,5 @@ class ApplicationController < ActionController::Base
       @events = @q.result(distinct: true).order(e_date_start: :desc).page(params[:page]).per(12)
     end
   end
+
 end

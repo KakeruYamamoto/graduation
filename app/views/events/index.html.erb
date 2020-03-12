@@ -1,43 +1,50 @@
-  <div class="text-center">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-3">EVENT KEEPER</h1>
-            <p class="lead">365日24時間エンターテイメント！</p>
-        </div>
-    </div>
-    <p id="notice"><%= notice %></p>
+<% require 'date' %>
+<% date = Date.today %>
+<% weeks = ["月","火","水","木","金","土","日"] %>
+<% index = date.strftime("%u").to_i %>
 
-  <% if current_user.try(:admin?) %>
-    <h1>Events_admin</h1>
-  <% end %>
-    <div class="container-fluid">
-      <div class="contents mx-auto">
-        <div class="row center-block" >
-          <% @events.each do |event| %>
-          <div class="card-deck col-sm-6 col-md-3 mt-5" id="event_card3" >
-           <div class="card img-thumbnail">
-             <%= link_to event,class: "event_link" do %>
-              <%= image_tag event.image.url , :size =>'450x300', class: "card-img-top" %>
-              <div class="card-body px-2 py-3">
-                <% if event.e_date_start <= Time.now %>
-                  <h5 class="card-title"><%= event.title.truncate(20) %></h5>
-                  <h4 class="alert alert-warning">このイベントは終了致しました</h4>
-                <% else %>
-                  <h4 class="card-title"><%= event.title.truncate(20) %></h4>
-                  <p class="card-text"><%= event.content.truncate(30) %></p>
-                <% end %>
-              </div>
+<div class="text-center">
+  <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+          <h1 class="display-3">EVENT KEEPER</h1>
+          <p class="lead">365日24時間エンターテイメント！</p>
+      </div>
+  </div>
+  <p id="notice"><%= notice %></p>
+
+<% if current_user.try(:admin?) %>
+  <h1>Events_admin</h1>
+<% end %>
+  <div class="container-fluid">
+    <div class="contents mx-auto">
+      <div class="row center-block" >
+        <% @events.each do |event| %>
+        <div class="card-deck col-sm-6 col-md-3 mt-5" id="event_card3" >
+         <div class="card img-thumbnail">
+           <%= link_to event,class: "event_link" do %>
+            <%= image_tag event.image.url , :size =>'450x300', class: "card-img-top" %>
+            <div class="card-body px-2 py-3">
+              <% if event.e_date_start <= Time.now %>
+                <h5 class="card-title"><%= event.title.truncate(20) %></h5>
+                <h4 class="alert alert-warning">このイベントは終了致しました</h4>
+              <% else %>
+                <h4 class="card-title"><%= event.title.truncate(20) %></h4>
+                <hr>
+                <strong><p class="card-text"><%= event.e_date_start.strftime("%Y年%-m月%-d日 （#{weeks[index - 1]}） %-H時%-M分") %></p></strong>
+                <p class="card-text"><%= event.content.truncate(50) %></p>
               <% end %>
             </div>
+            <% end %>
           </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
-  <br>
+<br>
 
-  <div class="paginate" id="event_list" >
-    <%= paginate @events %>
-  </div>
+<div class="paginate" id="event_list" >
+  <%= paginate @events %>
+</div>
