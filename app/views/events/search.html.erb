@@ -1,36 +1,43 @@
 <div class="text-center">
   <div class="container">
-
   <% require 'date' %>
   <% date = Date.today %>
   <% weeks = ["月","火","水","木","金","土","日"] %>
   <% index = date.strftime("%u").to_i %>
-
     <br>
-    <h2>検索結果</h2>
-    <table id="event_list" >
-      <thead>
-        <tr>
-          <th>イメージ</th>
-          <th>タイトル</th>
-          <th>開催日時</th>
-          <th>開催場所</th>
-          <th colspan="4"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @events.each do |event| %>
-        <tr>
-          <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-          <td><%= event.title %></td>
-          <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
-          <td><%= event.address %></td>
-          <td><%= link_to '詳細', event ,class: "btn btn-outline-secondary"%></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
+    <div class="search_index">
+      <h2>検索結果</h2>
+      <hr>
+      <% unless @events.present?  %>
+        <br>
+        <p>何も見つかりませんでした。</p>
+      <% else %>
+        <table id="event_list" >
+          <thead>
+            <tr>
+              <th>イメージ</th>
+              <th>タイトル</th>
+              <th>開催日時</th>
+              <th>開催場所</th>
+              <th colspan="4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @events.each do |event| %>
+            <tr class="search_reslut" onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link">
+              <td><%= image_tag event.image.url, :size =>'100x100' %></td>
+              <td><%= event.title %></td>
+              <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
+              <td><%= event.address %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      <%= link_to '戻る', :back,class: "btn btn-outline-secondary" %>
+      <div class="paginate" id="event_list" >
+        <%= paginate @events %>
+      </div>
+    </div>
   </div>
 </div>

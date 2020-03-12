@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
 
   <% require 'date' %>
   <% date = Date.today %>
@@ -10,6 +10,7 @@
     <p id="notice"><%= notice %></p>
     <br>
     <h1>あとでみるリスト</h1>
+    <hr>
     <% unless @favorites.present? %>
       <br>
       <p>リストに何もありません。</p>

@@ -30,7 +30,7 @@
               <% else %>
                 <h4 class="card-title"><%= event.title.truncate(20) %></h4>
                 <hr>
-                <strong><p class="card-text"><%= event.e_date_start.strftime("%Y年%-m月%-d日 （#{weeks[index - 1]}） %-H時%-M分") %></p></strong>
+                <strong><p class="card-text"><%= event.e_date_start.strftime("%Y年%-m月%-d日(#{weeks[index - 1]}) %-H時%-M分") %></p></strong>
                 <p class="card-text"><%= event.content.truncate(50) %></p>
               <% end %>
             </div>

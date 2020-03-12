@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
 
   <% require 'date' %>
   <% date = Date.today %>
@@ -10,23 +10,24 @@
 
     <% if @user.id == current_user.id %>
       <h1>ようこそ<%= @user.name %>さん</h1>
+      <hr>
       <p>あなたのページです。</p>
     <% else %>
       <h1><%= @user.name %>さんのページ</h1>
+      <hr>
     <% end %>
 
-    <p><%= image_tag @user.icon.url , :size =>'180x180'%></p>
+    <p><%= image_tag @user.icon.url , :size =>'180x180' ,class: "image_icon" %></p>
     <p><%= link_to "#{@user.followers.count} フォロワー",users_path(user_id: @user.id)  %> &emsp;<%= link_to "#{@user.following.count}フォロー中", following_users_path(user_id: @user.id) %>
     <% if @user.id == current_user.id %>
-      <p><%= link_to '受信BOX' , contacts_path %></p>
+      <p><%= link_to '受信BOX' , contacts_path,class: "btn btn-outline-info" %></p>
       <p><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></p>
       <p><%= link_to 'プロフィール編集', edit_user_registration_path(@user),class: "btn btn-outline-secondary" %></p>
     <% end %>
 
     <br>
     <p><%= render 'follow_form', user: @user unless @user.id == current_user.id %></p>
-    <br>
-
+    <hr>
     <h3>主催しているイベント一覧</h3>
     <% unless @user.events.present? %>
       <br>
@@ -44,19 +45,17 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-
         <tbody>
           <% @users.each do |event| %>
-            <tr>
-              <td><%= image_tag event.image.url, :size =>'100x100' %></td>
-              <td><%= event.title.truncate(50) %></td>
-              <td><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
-              <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" if event.id ==current_user.id %></td>
-              <td><%= link_to '詳細', event, class: "btn btn-outline-secondary"  %></td>
+            <tr class="search_reslut">
+              <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= image_tag event.image.url, :size =>'100x100' %></td>
+              <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= event.title.truncate(50) %></td>
+              <td onclick='window.location="<%= '/events/' + event.id.to_s %>"' role="link"><%= event.e_date_start.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") %>~<%= event.e_date_end.strftime("%Y年%-m月%-d日 #{weeks[index - 1]}曜日 %-H時%-M分") if event.e_date_end.present? %></td>
+              <td><%= link_to '編集', edit_event_path(event),class: "btn btn-outline-danger" if event.user.id ==current_user.id %></td>
             </tr>
-        <% end %>
-      </tbody>
-    </table>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
   <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
   </div>

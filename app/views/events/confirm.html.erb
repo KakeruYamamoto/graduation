@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div class="container">
+  <div class="search_index container">
 
     <% require 'date' %>
     <% date = Date.today %>
@@ -8,7 +8,7 @@
 
     <br>
     <h1>確認画面</h1>
-
+    <hr>
     <p class="alert alert-danger">まだ登録が完了していません！</p>
     <%= form_with(model: @event, url: events_path, local: true) do |form| %>
       <%= form.hidden_field :image_cache %>
@@ -18,7 +18,7 @@
       <%= form.hidden_field :address %>
       <%= form.hidden_field :content %>
       <h2><%= @event.title %></h2>
-      <%= image_tag(@event.image.url, class: "img-fluid",id: "eventImage" ) if @event.image && @event.image.url %>
+      <%= image_tag(@event.image.url, class: "image_icon img-fluid",id: "eventImage" ) if @event.image && @event.image.url %>
       <% @label_ids.each do |label_id| %>
         <%= form.hidden_field :label_ids, value: label_id, multiple: true %>
       <% end %>

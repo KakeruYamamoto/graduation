@@ -102,3 +102,32 @@ label {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.search_reslut {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    background-color: #F8F9FA;
+    opacity: 0.9;
+  }
+}
+
+.search_index {
+  background-color: white;
+  padding: 10px;
+}
+
+p .image_icon {
+  border-style: solid;
+  border-width: thin;
+  border-color: #9C9C9D;
+}
+.image_icon.img-fluid {
+  border-style: solid;
+  border-width: thin;
+  border-color: #9C9C9D;
+}

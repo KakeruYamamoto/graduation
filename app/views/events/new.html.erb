@@ -1,9 +1,11 @@
 <div class="text-center">
-  <br>
-  <h1>新しくイベントを作成する</h1>
-  <br>
-  <%= render 'form', event: @event %>
-  <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
-  <br>
-  <br>
+  <div class="search_index container">
+    <br>
+    <h1>新しくイベントを作成する</h1>
+    <hr>
+    <br>
+    <%= render 'form', event: @event %>
+    <%= link_to '戻る', events_path,class: "btn btn-outline-secondary" %>
+    <br>
+  </div>
 </div>

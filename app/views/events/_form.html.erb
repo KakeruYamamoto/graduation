@@ -5,7 +5,7 @@
 
       <div class="row justify-content-center">
         <p><%= form.label :image,class: "sr-only" %></p>
-        <%= image_tag(@event.image.url, :size =>'320x480', class: "img-fluid" )if @event.image && @event.image.url %>
+        <%= image_tag(@event.image.url, :size =>'320x480', class: "image_icon img-fluid" )if @event.image && @event.image.url %>
         <%= form.hidden_field :image_cache %>
       </div>
 

@@ -10,7 +10,7 @@ class EventsController < ApplicationController
 
   def search
      @q = Event.search(search_params)
-     @events = @q.result(distinct: true)
+     @events = @q.result(distinct: true).page(params[:page]).per(25)
   end
 
   def show
