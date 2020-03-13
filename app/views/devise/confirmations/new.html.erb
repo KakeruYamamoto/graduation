@@ -2,7 +2,6 @@
   <div class="comtainer">
     <br>
     <h2>確認手順を再送信</h2>
-
     <%= form_for(resource, as: resource_name,class:"form-signin", url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <br>
