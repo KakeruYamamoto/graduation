@@ -63,8 +63,8 @@
 
 
 
-## カタログ設計
-詳細は[こちら]()をご覧ください。
+<!-- ## カタログ設計
+詳細は[こちら]()をご覧ください。 -->
 
 ## テーブル定義
 詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing)をご覧ください。
@@ -72,11 +72,11 @@
 ## ER図
 <img src="https://raw.githubusercontent.com/KakeruYamamoto/graduation/master/erd.png" width="650px">
 
-## 画面遷移図
+<!-- ## 画面遷移図
 詳細は[こちら]()をご覧ください。
 
 ## 画面ワイヤーフレーム
-詳細は[こちら]()をご覧ください。
+詳細は[こちら]()をご覧ください。 -->
 
 # 使用技術
 - ログイン機能
