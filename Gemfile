@@ -65,14 +65,12 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'gimei'
   gem 'guard-rspec'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-  gem 'selenium-webdriver'
   gem 'selenium-webdriver'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -85,14 +83,12 @@ group :development do
   gem 'letter_opener_web'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rails-erd'
-  gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
   gem 'chromedriver-helper'
-  gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
