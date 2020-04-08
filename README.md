@@ -76,7 +76,7 @@
 詳細は[こちら]()をご覧ください。
 
 ## 画面ワイヤーフレーム
-<img src="https://cacoo.com/diagrams/y5Szk1GeOvPKQRcD-9E3BF.png" width="650px">
+<img src="https://drive.google.com/file/d/1NAutXRzz5hYZ4GukA3vt-lo_caifVv2R/view?usp=sharing" width="650px">
 
 # 使用技術
 - ログイン機能
