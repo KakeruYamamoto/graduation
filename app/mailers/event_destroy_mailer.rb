@@ -1,7 +1,8 @@
-class EventDestroyMailer < ApplicationMailer
+# frozen_string_literal: true
 
-  def event_destroy(email,event_info)
+class EventDestroyMailer < ApplicationMailer
+  def event_destroy(email, event_info)
     @event_info = event_info
-    mail to: email, subject: "イベントが中止になりました。"
+    mail to: email, subject: 'イベントが中止になりました。'
   end
 end

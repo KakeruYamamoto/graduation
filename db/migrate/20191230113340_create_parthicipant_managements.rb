@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateParthicipantManagements < ActiveRecord::Migration[5.2]
   def change
     create_table :parthicipant_managements do |t|

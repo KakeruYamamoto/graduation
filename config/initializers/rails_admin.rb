@@ -1,11 +1,10 @@
-RailsAdmin.config do |config|
+# frozen_string_literal: true
 
-  #例外処理
+RailsAdmin.config do |config|
+  # 例外処理
   config.parent_controller = 'ApplicationController'
 
   ### Popular gems integration
-
-
 
   ## == Devise ==
   config.authenticate_with do

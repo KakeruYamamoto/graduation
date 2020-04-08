@@ -1,21 +1,20 @@
+# frozen_string_literal: true
+
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :destroy]
-  before_action :authenticate_user!, only: [:index, :show, :new, :create, :update]
+  before_action :set_contact, only: %i[show destroy]
+  before_action :authenticate_user!, only: %i[index show new create update]
 
   def index
     @events = current_user.events
-    event_array = @events.map {|event| event.contacts unless nil? }
+    event_array = @events.map { |event| event.contacts unless nil? }
     @contacts = event_array.flatten
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @contact = Contact.new
-    if params[:event_id]
-      @contact[:event_id] = params[:event_id]
-    end
+    @contact[:event_id] = params[:event_id] if params[:event_id]
   end
 
   def create

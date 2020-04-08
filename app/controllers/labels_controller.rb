@@ -1,20 +1,20 @@
+# frozen_string_literal: true
+
 class LabelsController < ApplicationController
-  before_action :set_label, only: [:show, :edit, :update, :destroy]
+  before_action :set_label, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
     @labels = Label.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @label = Label.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @label = Label.new(label_params)

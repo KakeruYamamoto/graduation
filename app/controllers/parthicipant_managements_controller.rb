@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ParthicipantManagementsController < ApplicationController
-    before_action :authenticate_user!
-    before_action :ended_event,only: [:create]
-    
+  before_action :authenticate_user!
+  before_action :ended_event, only: [:create]
+
   def create
     parthicipante = current_user.parthicipant_managements.create(event_id: params[:event_id])
     redirect_to events_url, notice: "[#{parthicipante.event.title}]の参加しました"
@@ -12,11 +14,12 @@ class ParthicipantManagementsController < ApplicationController
     redirect_to events_url, notice: "[#{parthicipante.event.title}]の参加をキャンセルしました"
   end
 
-private
+  private
 
   def ended_event
-    event_date = Event.find(params[:event_id].to_i).e_date_start if params[:event_id]
-    redirect_to events_path, notice: "このイベントは終了しています。" if event_date <= Time.now
+    if params[:event_id]
+      event_date = Event.find(params[:event_id].to_i).e_date_start
   end
-
+    redirect_to events_path, notice: 'このイベントは終了しています。' if event_date <= Time.now
+  end
 end
