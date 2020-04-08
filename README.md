@@ -73,7 +73,7 @@
 <img src="https://raw.githubusercontent.com/KakeruYamamoto/graduation/master/erd.png" width="650px">
 
 ## 画面遷移図
-<img src="https://drive.google.com/file/d/1NAutXRzz5hYZ4GukA3vt-lo_caifVv2R/view?usp=sharing" width="650px">
+<img src="https://drive.google.com/file/d/1NAutXRzz5hYZ4GukA3vt-lo_caifVv2R/view" width="650px">
 
 ## 画面ワイヤーフレーム
 <img src="" width="650px">
