@@ -73,10 +73,10 @@
 <img src="https://raw.githubusercontent.com/KakeruYamamoto/graduation/master/erd.png" width="650px">
 
 ## 画面遷移図
-<img src="https://photos.google.com/share/AF1QipPvC8csaK6fcyiI28gGtFzYI9yucDJ2iISYmyEy4gKfETyzBxIVDq0sSh099-VZOQ/photo/AF1QipOLjbwV3tlroCRZ0jHUIihWSfllENIGgts_Ts22?key=b1hzSHZVdnQtQXRtSk9sZThWOEt6TUFHZURncU1n" width="650px">
+<img src="https://lh3.googleusercontent.com/glbMGtgjssBHV9ryCheCfvIZnMglM6f_N4UVL2LYk0HXb-Ag0ExwLk4oAmHU-BxDET9R6I7ecwb5KdKbUu7iT2CsuvMCLzKTIyhUZZPaZ_7CN7kuUE5WhcTRnzhVs-iML63LkBTPeY5KYPjsgeOsqXe5cfIhlQUl-uhNCwE1fGk0mYZVJrHxTYbi4Qjeb6oJIOwO4q-wAj45GQ1UglCqJGoUusGGKVNhJuhV_m3lT_OSlQkITi7dOcM3LryG0qI18SsJK6GW7XmT_tIbR8DIGrOUQVQILG4LU68VbwW2EbsyrDuPzowxgskGw6LomVP8Qv3BFPh0O0TUYasYBfEYyH_zPTzmVF2ZmwtSI5HDqdDyse320f59RtVODAfjOC70HrSs0tJMitgG1kl9C1SqXdxNiqvIB5lQvp_ZfT_67gzESpsAGhrQmJkN8dK5-gNisKlffzQERUj9spDXFw3fznrmKLk05URHT-Sw5IynzlLoDxPtSFpDlQ1zeEFp_THLswyJ7KRSt3nJrBR_TZGOHLb8sSiujYtVtJOG7yOQdW8y210eR2WZhXYaZ8z5BoQriHI4uczbPcBzitLJQLpF7jCk_M1sDfHiqTSYNU9DmaQamqTlH0xRyQZH6nGWgQiPQuXDS3hu1JBzZXLygtcfR-vg4WwXD3HL2SDs5wR4DpZPZDofCNNOrTKCgyFxxiayvpil3CNdeiUaAQsSTKyPbx7oaZ6E1phlwRrNxt9wmT1d9zgxcxyH=d" width="650px">
 
 ## 画面ワイヤーフレーム
-<img src="" width="650px">
+<!-- <img src="" width="650px"> -->
 
 # 使用技術
 - ログイン機能
