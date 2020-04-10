@@ -22,7 +22,7 @@ User.create!(name: 'admin',
   password = 'password'
   User.create!(name: name,
                email: email,
-               icon: open("#{Rails.root}/db/fixtures_icon/images (#{rand(1..43)}).jpeg"),
+               icon: open("#{Rails.root}/db/fixtures_icon/images(#{rand(1..42)}).jpeg"),
                password: password,
                password_confirmation: password)
 end
@@ -33,13 +33,13 @@ email2 = Faker::Internet.email
 password = 'password'
 test_user1 = User.create(name: 'test_user1',
                          email: email1,
-                         icon: open("#{Rails.root}/db/fixtures_icon/images (#{rand(1..43)}).jpeg"),
+                         icon: open("#{Rails.root}/db/fixtures_icon/images(#{rand(1..42)}).jpeg"),
                          password: password,
                          password_confirmation: password)
 
 test_user2 = User.create(name: 'test_user2',
                          email: email2,
-                         icon: open("#{Rails.root}/db/fixtures_icon/images (#{rand(1..43)}).jpeg"),
+                         icon: open("#{Rails.root}/db/fixtures_icon/images(#{rand(1..42)}).jpeg"),
                          password: password,
                          password_confirmation: password)
 
@@ -83,10 +83,9 @@ end
 end
 
 # テストユーザ３
-
 test_user3 = User.create(name: '田中太郎',
                          email: 'tanaka@mail.com',
-                         icon: open("#{Rails.root}/db/fixtures_icon/images (#{rand(1..43)}).jpeg"),
+                         icon: open("#{Rails.root}/db/fixtures_icon/images(#{rand(1..42)}).jpeg"),
                          password: 'tanaka@mail.com',
                          password_confirmation: 'tanaka@mail.com')
 
