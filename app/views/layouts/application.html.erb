@@ -42,9 +42,9 @@
               <%= link_to "新規イベント作成", new_event_path, class:"nav-link" %>
             </li>
             <% if current_user.admin? %>
-            <li class="nav-item admin_nav" >
-              <%= link_to "管理者ページ" ,  rails_admin_path, class: "nav-link" %>
-            </li>
+              <li class="nav-item admin_nav" >
+                <%= link_to "管理者ページ" ,  rails_admin_path, class: "nav-link" %>
+              </li>
             <% end %>
           <% else %>
             <li class="nav-item">

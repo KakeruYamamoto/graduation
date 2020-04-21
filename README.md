@@ -1,7 +1,8 @@
 # README
+DIC卒業課題(6/6)
 ＊2020/03/12 再修正済み（主にレイアウト）
 
-# EVENT KEEPER
+## EVENT KEEPER
 ### Heroku:https://mighty-harbor-57988.herokuapp.com
 ### AWS:http://18.182.182.144 (googleログイン、sendgrid未実装)
 ##### ＊Herokuが最新です。
@@ -70,13 +71,14 @@
 詳細は[こちら](https://docs.google.com/spreadsheets/d/1ZxAl-qePMVRVjMSjJvvdCAtxFa8Lr9Chx3hgXIj9r2s/edit?usp=sharing)をご覧ください。
 
 ## ER図
-<img src="/db/fixtures/ER1 (1).png" width="650px">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vRd3c2_fmnKIi0PxVC09WeAnYRBosis86yLWWnnBb8PvNjPpV24z3awAxmVLbheQzHnpENgyhWtyNlF/pub?w=960&amp;h=720">
+
 
 ## 画面遷移図
-<img src="/db/fixtures/画面遷移図.png" width="650px">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQ4njbRjKKVwIMQ9u_KlH68i1ozrhqGCMT2vlu3OpGi1zuVwa1zAO5V0vKvGAhxIaU4Lx0TAeVY1e0n/pub?w=960&amp;h=720">
 
 ## 画面ワイヤーフレーム
-<img src="/db/fixtures/ワイヤーフレーム.png" width="650px">
+<img src="https://docs.google.com/drawings/d/e/2PACX-1vQ_8uYAO8pqswb-gbbAxfGIBkeECctkVpEqhuTOCrR7zfQCZAI8be_qbI8Ueadl3SPO3aNsJ_iOZAER/pub?w=960&amp;h=720">
 
 
 # 使用技術

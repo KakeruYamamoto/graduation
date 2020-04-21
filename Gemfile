@@ -1,13 +1,11 @@
-# frozen_string_literal: true
-
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
 # Core
-gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails', '~> 5.2.4'
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # Middleware
 gem 'pg', '>= 0.18', '< 2.0'
